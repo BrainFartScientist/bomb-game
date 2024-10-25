@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccrpa3xt77168"]
+[gd_scene load_steps=10 format=3 uid="uid://ccrpa3xt77168"]
 
 [ext_resource type="Script" path="res://bomb.gd" id="1_7nkuv"]
 [ext_resource type="Texture2D" uid="uid://j8x2kauegyv0" path="res://assets/bombs/Bomb_01_base.png" id="2_ufy5h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://diw8hl4aawiep" path="res://assets/bombs/Bomb_01_cables_broken.png" id="4_s7lim"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_wuv1w"]
 [ext_resource type="Script" path="res://ActiveBombElement.gd" id="6_flr0o"]
+[ext_resource type="Texture2D" uid="uid://cm3ecjtd0u005" path="res://assets/bombs/Bomb_01_cables_fixed.png" id="7_6uekl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eubfi"]
 shader = ExtResource("4_wuv1w")
@@ -37,3 +38,8 @@ material = SubResource("ShaderMaterial_g2gv0")
 position = Vector2(772, 446)
 texture = ExtResource("4_s7lim")
 script = ExtResource("6_flr0o")
+
+[node name="Bomb01CablesFixed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(772, 446)
+texture = ExtResource("7_6uekl")
