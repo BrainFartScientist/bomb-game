@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0dilndsxtb0b"]
+
+[ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://assets/scenes/hammer.tscn" id="1_nmhl8"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Hammer" parent="." instance=ExtResource("1_nmhl8")]
+position = Vector2(1106, 170)
