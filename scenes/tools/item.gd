@@ -4,6 +4,7 @@ class_name Item
 @export var tool: String = "screwdriver"
 @onready var sprite = $sprite
 var has_outline: bool = false
+var active_tool = null
 const tools = {
 	"screwdriver": {
 		"image": preload("res://assets/graphics/generic_tools/genericItem_color_005.png")
@@ -14,12 +15,14 @@ const tools = {
 }
 
 func _ready() -> void:
+	active_tool = get_node("screwdriver")
 	switch_tools(tool)
 	
 func switch_tools(tool: String):
+	active_tool.visible = false
 	self.tool = tool
-	sprite.texture = tools[tool].image
-	
+	active_tool = get_node(self.tool)
+	active_tool.visible = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -34,12 +37,12 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
-	sprite.material.set("shader_param/hasOutline", self.has_outline)
+	active_tool.material.set("shader_param/hasOutline", self.has_outline)
 	
 func interact(player: Node):
 	if player.holdingTool != "":
 		var temp = player.holdingTool
-		player.holdingTool = tool
+		player.set_holding_tool(tool)
 		switch_tools(temp)
 	else:
 		player.holdingTool = tool

@@ -19,7 +19,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		set_outline(false)
 
 func interact(player: Node):
-	get_tree().root.get_child(0).open_bomb("Bomb_01")
+	get_tree().root.get_child(0).open_bomb("Bomb_01", player.holdingTool)
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline

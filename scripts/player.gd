@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -300.0
 var holdingTool : String
 signal useTool(String)
 var cooldown : int
-
+@onready var tool_inv = $Gui/ToolRect
 var interactiveElements = []
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -27,6 +27,10 @@ func _process(delta):
 		if Input.is_action_just_pressed("use_item") and nearerst_node.has_method("interact"):
 			nearerst_node.interact(self)
 	
+func set_holding_tool(tool: String):
+	self.holdingTool = tool
+	tool_inv.display_tool(tool)
+
 func add_interactive_element(new_element: Variant):
 	for element in interactiveElements:
 		if element == new_element:

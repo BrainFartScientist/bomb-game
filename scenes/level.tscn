@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=14 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="5_a2u4c"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
+[ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_cueb0"]
 [ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
+[ext_resource type="Script" path="res://scenes/tool_rect.gd" id="9_nv0lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1486,17 +1488,35 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Player/Gui"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -24.0
+offset_top = 132.0
+offset_right = 27.0
+offset_bottom = 183.0
+texture = ExtResource("7_cueb0")
+expand_mode = 1
+
+[node name="ToolRect" type="TextureRect" parent="Player/Gui"]
+layout_mode = 0
+offset_left = -15.5
+offset_top = 137.5
+offset_right = 19.5
+offset_bottom = 178.5
+expand_mode = 1
+script = ExtResource("9_nv0lq")
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
 
 [node name="ducttape" parent="." instance=ExtResource("8_clihd")]
-position = Vector2(3141, 956)
+position = Vector2(3187, 999)
 scale = Vector2(0.6, 0.6)
 tool = "ducttape"
 
 [node name="screwdriver" parent="." instance=ExtResource("8_clihd")]
 position = Vector2(3080, 874)
 scale = Vector2(0.6, 0.6)
+
+[node name="hammer" parent="." instance=ExtResource("8_clihd")]
+position = Vector2(3056, 1096)
+scale = Vector2(0.6, 0.6)
+tool = "hammer"
