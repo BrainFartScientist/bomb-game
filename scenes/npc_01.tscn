@@ -1,8 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://y8atnhog85c4"]
+[gd_scene load_steps=62 format=3 uid="uid://y8atnhog85c4"]
 
 [ext_resource type="Script" path="res://scripts/npc_01.gd" id="1_jhdvs"]
 [ext_resource type="Texture2D" uid="uid://djgy76rt4eu8i" path="res://assets/npc01/64X128_Idle_Free.png" id="2_qoi38"]
 [ext_resource type="Texture2D" uid="uid://bb43s0s6ipdk1" path="res://assets/npc01/64X128_Walking_Free.png" id="3_7ho1c"]
+[ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://dialogs/dialog.tscn" id="4_oenq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebf8"]
 size = Vector2(52, 25)
@@ -432,7 +433,7 @@ shape = SubResource("RectangleShape2D_eebf8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y2ibk")
 animation = &"walk_down"
-frame_progress = 0.3775
+frame_progress = 0.586746
 
 [node name="chat_detection_area" type="Area2D" parent="."]
 
@@ -442,6 +443,13 @@ shape = SubResource("CircleShape2D_x4uxy")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Dialog" parent="." instance=ExtResource("4_oenq6")]
+offset_left = -46.0
+offset_top = -93.0
+offset_right = -46.0
+offset_bottom = -93.0
+
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialog_finished" from="Dialog" to="." method="_on_dialog_dialog_finished"]
