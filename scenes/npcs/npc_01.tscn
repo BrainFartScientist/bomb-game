@@ -525,6 +525,7 @@ offset_left = -166.0
 offset_top = -286.0
 offset_right = -166.0
 offset_bottom = -286.0
+d_file = "res://dialogs/boss_dialog_lvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
