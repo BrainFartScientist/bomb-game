@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
 [ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://scenes/tools/hammer.tscn" id="3_7fmch"]
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="5_2rqd1"]
+[ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
