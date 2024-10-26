@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwq75mpb28ixg"]
+
+[ext_resource type="Texture2D" uid="uid://ffl03i5jkbve" path="res://assets/graphics/generic_tools/genericItem_color_005.png" id="1_irvxp"]
+
+[node name="screwdriver" type="Node2D"]
+
+[node name="screwdriverSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_irvxp")

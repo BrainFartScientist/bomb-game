@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cknfqe3di5lqi"]
+
+[ext_resource type="Texture2D" uid="uid://b70ql5srinr42" path="res://assets/graphics/generic_tools/genericItem_color_023.png" id="1_e0l8i"]
+
+[node name="Hammer" type="Node2D"]
+
+[node name="HammerSprite" type="Sprite2D" parent="."]
+position = Vector2(6, 2)
+scale = Vector2(0.317308, 0.335227)
+texture = ExtResource("1_e0l8i")
