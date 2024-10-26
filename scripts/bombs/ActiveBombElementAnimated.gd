@@ -1,32 +1,24 @@
-extends Sprite2D
+extends AnimatedSprite2D
+class_name ActiveBombElementAnimated
 
-signal mouse_over_non_alpha
+@export var is_active = true
 
 func _ready():
 	set_process_input(true)
 
-func _input(event):
-	if event is InputEventMouseMotion:
-		if is_topmost_and_non_alpha():
-			material.set("shader_param/hasOutline", true);
-		else:
-			material.set("shader_param/hasOutline", false);
+func clicked(item: String, bomb: Bomb):
+	print("Click Event: Node: %s Item: %s Bomb: %s" % [self, item, bomb])
 
-func is_topmost_and_non_alpha() -> bool:
-	if !is_mouse_over_non_alpha():
-		return false
-	return is_topmost_at_mouse()
-	
-func is_topmost_at_mouse() -> bool:
-	var topmost_sprite = self
-	for node in get_parent().get_children():
-		if node is Sprite2D and node.texture and node.has_method("is_mouse_over_non_alpha") and node.is_mouse_over_non_alpha():
-			topmost_sprite = node
-	return topmost_sprite == self
+func set_outline(hasOutline: bool):
+	material.set("shader_param/hasOutline", hasOutline)
 
 func is_mouse_over_non_alpha() -> bool:
 	# Get the mouse position relative to the sprite
 	var local_pos = to_local(get_viewport().get_mouse_position())
+	var texture = sprite_frames.get_frame_texture(animation, frame)
+	if texture == null:
+		return false
+	
 	# Check if the position is within the texture bounds
 	if local_pos.x < -(texture.get_width()/2) or local_pos.y < -(texture.get_height()/2) or local_pos.x >= texture.get_width()/2 or local_pos.y >= texture.get_height()/2:
 		return false

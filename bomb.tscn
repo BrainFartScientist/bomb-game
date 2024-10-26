@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccrpa3xt77168"]
+[gd_scene load_steps=25 format=3 uid="uid://ccrpa3xt77168"]
 
-[ext_resource type="Script" path="res://bomb.gd" id="1_7nkuv"]
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01.gd" id="1_lqajg"]
 [ext_resource type="Texture2D" uid="uid://j8x2kauegyv0" path="res://assets/bombs/Bomb_01_base.png" id="2_ufy5h"]
 [ext_resource type="Texture2D" uid="uid://ca2roil5tqo38" path="res://assets/bombs/Bomb_01_inside.png" id="3_jj4vo"]
-[ext_resource type="Texture2D" uid="uid://diw8hl4aawiep" path="res://assets/bombs/Bomb_01_cables_broken.png" id="4_s7lim"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_wuv1w"]
-[ext_resource type="Script" path="res://ActiveBombElement.gd" id="6_flr0o"]
-[ext_resource type="Texture2D" uid="uid://cm3ecjtd0u005" path="res://assets/bombs/Bomb_01_cables_fixed.png" id="7_6uekl"]
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01_Inside.gd" id="5_187fx"]
+[ext_resource type="Texture2D" uid="uid://b5uchwvs27ql5" path="res://assets/bombs/Bomb_01_cables.png" id="6_1i7ax"]
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01_CableBroken.gd" id="7_7ogjl"]
+[ext_resource type="Texture2D" uid="uid://bwmgbcc4rbbqq" path="res://assets/bombs/Bomb_01_cover.png" id="8_gmfwx"]
+[ext_resource type="Texture2D" uid="uid://bl7dgoxhqegkm" path="res://assets/bombs/Bomb_01_screw.png" id="9_rkxac"]
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01_Cover.gd" id="9_urktr"]
+[ext_resource type="Script" path="res://scripts/bombs/Screw.gd" id="10_sfb4s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eubfi"]
 shader = ExtResource("4_wuv1w")
@@ -20,8 +24,92 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 shader_parameter/hasOutline = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0co1"]
+atlas = ExtResource("6_1i7ax")
+region = Rect2(0, 0, 600, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pqy"]
+atlas = ExtResource("6_1i7ax")
+region = Rect2(600, 0, 600, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3175"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0co1")
+}],
+"loop": true,
+"name": &"idle_broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pqy")
+}],
+"loop": true,
+"name": &"idle_fixed",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1immd"]
+shader = ExtResource("4_wuv1w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtcbh"]
+shader = ExtResource("4_wuv1w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thi3r"]
+atlas = ExtResource("9_rkxac")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61mya"]
+atlas = ExtResource("9_rkxac")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfl6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thi3r")
+}],
+"loop": true,
+"name": &"idle_hole",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61mya")
+}],
+"loop": true,
+"name": &"idle_screw",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3lll"]
+shader = ExtResource("4_wuv1w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvskk"]
+shader = ExtResource("4_wuv1w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_me36f"]
+shader = ExtResource("4_wuv1w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
 [node name="Bomb_01" type="Node2D"]
-script = ExtResource("1_7nkuv")
+script = ExtResource("1_lqajg")
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(600, 400)
@@ -29,17 +117,60 @@ texture = ExtResource("2_ufy5h")
 
 [node name="Inside" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_eubfi")
-position = Vector2(820, 485)
+position = Vector2(818.5, 486.5)
+scale = Vector2(0.861667, 0.8725)
 texture = ExtResource("3_jj4vo")
-script = ExtResource("6_flr0o")
+script = ExtResource("5_187fx")
+is_active = false
 
-[node name="Cable" type="Sprite2D" parent="."]
+[node name="Cables" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_g2gv0")
-position = Vector2(772, 446)
-texture = ExtResource("4_s7lim")
-script = ExtResource("6_flr0o")
+position = Vector2(794, 461)
+scale = Vector2(0.94375, 0.94375)
+sprite_frames = SubResource("SpriteFrames_r3175")
+animation = &"idle_broken"
+script = ExtResource("7_7ogjl")
+is_active = false
 
-[node name="Bomb01CablesFixed" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(772, 446)
-texture = ExtResource("7_6uekl")
+[node name="Cover" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1immd")
+position = Vector2(825.5, 482)
+scale = Vector2(0.988889, 0.968889)
+texture = ExtResource("8_gmfwx")
+script = ExtResource("9_urktr")
+is_active = false
+
+[node name="Screw_03" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wtcbh")
+position = Vector2(571, 649)
+scale = Vector2(1.35024, 1.35024)
+sprite_frames = SubResource("SpriteFrames_cfl6e")
+animation = &"idle_screw"
+script = ExtResource("10_sfb4s")
+id = "left_down_screw"
+
+[node name="Screw_04" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_i3lll")
+position = Vector2(1065, 647)
+scale = Vector2(1.35024, 1.35024)
+sprite_frames = SubResource("SpriteFrames_cfl6e")
+animation = &"idle_screw"
+script = ExtResource("10_sfb4s")
+id = "right_down_screw"
+
+[node name="Screw_01" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cvskk")
+position = Vector2(568.75, 325.75)
+scale = Vector2(1.162, 1.162)
+sprite_frames = SubResource("SpriteFrames_cfl6e")
+animation = &"idle_screw"
+script = ExtResource("10_sfb4s")
+
+[node name="Screw_02" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_me36f")
+position = Vector2(1061, 326)
+scale = Vector2(1.1625, 1.1625)
+sprite_frames = SubResource("SpriteFrames_cfl6e")
+animation = &"idle_screw"
+script = ExtResource("10_sfb4s")
+id = "right_top_screw"
