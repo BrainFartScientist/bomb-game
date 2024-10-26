@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7rslujjt31k8"]
 
-[ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_412b7"]
+[ext_resource type="Script" path="res://scripts/dialog.gd" id="1_412b7"]
 [ext_resource type="Texture2D" uid="uid://r0oegomn8wwo" path="res://assets/chatbox/pixil-frame-0.png" id="1_jx7x4"]
 
 [node name="Dialog" type="Control"]
@@ -10,18 +10,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -22.0
 offset_top = -13.0
-offset_right = -22.0
-offset_bottom = -13.0
+offset_right = -809.0
+offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_412b7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 587.0
-offset_top = 302.0
-offset_right = 687.0
-offset_bottom = 349.0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 91.0
+offset_bottom = 44.0
 scale = Vector2(4, 4)
 texture = ExtResource("1_jx7x4")
 patch_margin_left = 3

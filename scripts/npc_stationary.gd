@@ -70,7 +70,7 @@ func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 
 
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
-	if body.method_has("player"):
+	if body.has_method("player"):
 		player_in_chat_zone = false
 
 
