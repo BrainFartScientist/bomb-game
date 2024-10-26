@@ -3,8 +3,18 @@ extends CharacterBody2D
 
 const SPEED = 250
 const JUMP_VELOCITY = -300.0
+var holdingTool : String
+signal useTool(String)
+var cooldown : int
 
 @onready var animated_sprite = $AnimatedSprite2D
+
+func _process(delta):
+	if Input.is_action_pressed("use_item") and cooldown <= 0:
+		useTool.emit(holdingTool)
+		cooldown = 1
+	cooldown -= delta
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
