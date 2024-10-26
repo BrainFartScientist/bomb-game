@@ -2,9 +2,11 @@ extends Node2D
 @onready var window_sprite: Sprite2D = $WindowSprite
 @onready var collisionsquare: CollisionShape2D = $CollisionArea/Collisionsquare
 @onready var collision_area: Area2D = $CollisionArea
+@onready var static_body_2d: StaticBody2D = $StaticBody2D
+
+var has_outline : bool
 
 
-var player_in_range = false;
 var sprite
 
 func _ready() -> void:
@@ -12,16 +14,17 @@ func _ready() -> void:
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		sprite.material.set("shader_param/hasOutline", true)
-		player_in_range = true
-
+		body.add_interactive_element(self)
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		sprite.material.set("shader_param/hasOutline", false)
-		player_in_range = false
+		body.remove_interactive_element(self)
+		set_outline(false)
 
-func _process(delta):
-	if Input.is_action_just_pressed("chat") and player_in_range:
+func interact(player: Node):
 		window_sprite.hide()
-		#collision_area.set_disabled(true)
+		queue_free()
+
+func set_outline(has_outline: bool):
+	self.has_outline = has_outline
+	sprite.material.set("shader_param/hasOutline", self.has_outline)
