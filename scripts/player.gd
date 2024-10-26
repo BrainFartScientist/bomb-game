@@ -7,14 +7,37 @@ var holdingTool : String
 signal useTool(String)
 var cooldown : int
 
+var interactiveElements = []
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _process(delta):
-	if Input.is_action_pressed("use_item") and cooldown <= 0:
-		useTool.emit(holdingTool)
-		cooldown = 1
-	cooldown -= delta
+	var nearerst_node = null
+	var nearest_length = 10000000000000000
+	for element in interactiveElements:
+		if element.has_method("set_outline"):
+			element.set_outline(false)
+		if position.distance_to(element.position) < nearest_length:
+			nearerst_node = element
+			nearest_length = position.distance_to(element.position)
 	
+	if nearerst_node != null:
+		if nearerst_node.has_method("set_outline"):
+			nearerst_node.set_outline(true)
+		if Input.is_action_just_pressed("use_item") and nearerst_node.has_method("interact"):
+			nearerst_node.interact(self)
+	
+func add_interactive_element(new_element: Variant):
+	for element in interactiveElements:
+		if element == new_element:
+			return
+	interactiveElements.append(new_element)
+
+func remove_interactive_element(del_element: Variant):
+	for i in range(interactiveElements.size()):
+		if interactiveElements[i] == del_element:
+			interactiveElements.remove_at(i)
+			return
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,8 +47,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 	
-
 	# Get the input direction and handle the movement/deceleration.
 	# Get the input direction: -1, 0, 1
 	
