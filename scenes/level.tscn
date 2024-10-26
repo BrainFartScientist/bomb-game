@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=10 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
 [ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://scenes/tools/hammer.tscn" id="3_7fmch"]
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
-[ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
-[ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="5_a2u4c"]
-[ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
+[ext_resource type="PackedScene" uid="uid://bpncfgpx27jw1" path="res://scenes/player.tscn" id="5_2rqd1"]
+[ext_resource type="PackedScene" uid="uid://c8sj5wg0pnhg" path="res://scenes/npcs/npc_blue_bird.tscn" id="6_u7xwo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -549,9 +548,16 @@ texture_region_size = Vector2i(48, 48)
 15:41/0 = 0
 0:42/0 = 0
 1:42/0 = 0
+2:42/0 = 0
+3:42/0 = 0
+4:42/0 = 0
+5:42/0 = 0
 0:43/0 = 0
 1:43/0 = 0
 2:43/0 = 0
+3:43/0 = 0
+4:43/0 = 0
+5:43/0 = 0
 2:44/0 = 0
 3:44/0 = 0
 4:44/0 = 0
@@ -1109,9 +1115,6 @@ texture_region_size = Vector2i(48, 48)
 15:59/0 = 0
 11:60/size_in_atlas = Vector2i(1, 2)
 11:60/0 = 0
-2:42/0 = 0
-3:42/size_in_atlas = Vector2i(3, 2)
-3:42/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5upk"]
 texture = ExtResource("2_6d3mg")
@@ -1458,6 +1461,7 @@ sources/0 = SubResource("TileSetAtlasSource_gbuud")
 sources/1 = SubResource("TileSetAtlasSource_y5upk")
 
 [node name="Level" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(18, 76)
@@ -1468,13 +1472,14 @@ tile_set = SubResource("TileSet_rkmxv")
 position = Vector2(2689, 481)
 
 [node name="NPC01" parent="." instance=ExtResource("4_tk0dy")]
-position = Vector2(2783, 678)
-script = ExtResource("5_a2u4c")
+position = Vector2(2782, 678)
 
 [node name="Player" parent="." instance=ExtResource("5_2rqd1")]
 position = Vector2(2808, 902)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0.5, 0)
+zoom = Vector2(0.75, 0.75)
 
-[node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
-position = Vector2(2832, 1022)
+[node name="NPCBlueBird" parent="." instance=ExtResource("6_u7xwo")]
+position = Vector2(2543, 754)
