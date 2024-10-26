@@ -34,17 +34,17 @@ modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 6.0
 offset_top = 9.0
-offset_right = 239.0
-offset_bottom = 103.0
+offset_right = 205.0
+offset_bottom = 93.0
 scale = Vector2(0.4, 0.4)
-text = " I am a Placeholder!"
+text = "I am a Chatbox!"
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
-offset_right = 242.0
+offset_right = 208.0
 offset_bottom = 24.0
 rotation = 0.000485491
 scale = Vector2(0.4, 0.4)
