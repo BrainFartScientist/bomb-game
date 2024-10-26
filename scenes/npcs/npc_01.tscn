@@ -1,6 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://y8atnhog85c4"]
+[gd_scene load_steps=72 format=3 uid="uid://y8atnhog85c4"]
 
-[ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="1_jhdvs"]
+[ext_resource type="Script" path="res://scripts/npc_stationary.gd" id="1_rdgjs"]
 [ext_resource type="Texture2D" uid="uid://djgy76rt4eu8i" path="res://assets/npcs/npc01/64X128_Idle_Free.png" id="2_qoi38"]
 [ext_resource type="Texture2D" uid="uid://bb43s0s6ipdk1" path="res://assets/npcs/npc01/64X128_Walking_Free.png" id="3_7ho1c"]
 [ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://scenes/npcs/dialog.tscn" id="4_oenq6"]
@@ -143,6 +143,46 @@ region = Rect2(512, 0, 64, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdhcc"]
 atlas = ExtResource("3_7ho1c")
 region = Rect2(576, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5pah"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(0, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wnfk"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(64, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fvjt"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(128, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhhd"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(192, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kso8h"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(256, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r0pc"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(320, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6b35"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(384, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttug"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(448, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eledm"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(512, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm0am"]
+atlas = ExtResource("3_7ho1c")
+region = Rect2(576, 128, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dg5o"]
 atlas = ExtResource("3_7ho1c")
@@ -351,6 +391,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_i5pah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wnfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fvjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kso8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r0pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6b35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yttug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eledm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm0am")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7dg5o")
 }, {
 "duration": 1.0,
@@ -421,33 +496,37 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4uxy"]
-radius = 94.4299
+radius = 205.548
 
 [node name="NPC01" type="CharacterBody2D"]
-script = ExtResource("1_jhdvs")
+script = ExtResource("1_rdgjs")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 38.5)
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_eebf8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -39)
 sprite_frames = SubResource("SpriteFrames_y2ibk")
-animation = &"walk_down"
-frame_progress = 0.586746
+animation = &"walk_left"
 
 [node name="chat_detection_area" type="Area2D" parent="."]
+position = Vector2(-20, -68)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-position = Vector2(0, 1)
+position = Vector2(21, 30)
 shape = SubResource("CircleShape2D_x4uxy")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Dialog" parent="." instance=ExtResource("4_oenq6")]
-offset_left = -167.0
-offset_top = -247.0
-offset_right = -167.0
-offset_bottom = -247.0
+offset_left = -166.0
+offset_top = -286.0
+offset_right = -166.0
+offset_bottom = -286.0
+d_file = "res://dialogs/boss_dialog_lvl1.json"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bokajgctmqvq3"]
+
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_2lltn"]
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_01/bomb_01_overworld.gd" id="1_kvbvc"]
+[ext_resource type="Texture2D" uid="uid://ccsifys5bmj64" path="res://assets/bombs/Bomb_01_overworld.png" id="2_5it43"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vv0dx"]
+shader = ExtResource("1_2lltn")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vh8xv"]
+radius = 71.0282
+
+[node name="Bomb01Overworld" type="Node2D"]
+script = ExtResource("1_kvbvc")
+
+[node name="Bomb01Overworld" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vv0dx")
+texture = ExtResource("2_5it43")
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_vh8xv")
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

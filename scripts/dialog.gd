@@ -7,11 +7,16 @@ signal dialog_finished
 var dialog = []
 var current_dialog_id = 0
 var d_active = false
+var wait = false
 
 func _ready():
 	$NinePatchRect.visible = false
 	
 func start():
+	if wait:
+		wait = false
+		return
+	print("lets go")
 	if d_active:
 		return
 	$NinePatchRect.visible = true
@@ -20,16 +25,24 @@ func start():
 	current_dialog_id = -1
 	next_script()
 	
+func stop():
+	if !d_active:
+		return
+	$NinePatchRect.visible = false
+	d_active = false
+	current_dialog_id = 0
+	
 func load_dialog():
-	var file = FileAccess.open("res://dialogs/boss_dialog_lvl1.json", FileAccess.READ)
+	var file = FileAccess.open(d_file, FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content
 	
 func _input(event):
 	if !d_active:
 		return
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") || event.is_action_pressed("chat"):
 		next_script()
+		
 
 func next_script():
 	current_dialog_id += 1
@@ -37,6 +50,7 @@ func next_script():
 		d_active = false
 		$NinePatchRect.visible = false
 		emit_signal("dialog_finished")
+		wait = true
 		return
 		
 	$NinePatchRect/Name.text = dialog[current_dialog_id]['name']

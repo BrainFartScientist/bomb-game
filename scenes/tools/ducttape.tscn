@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bljrxb6jg7u81"]
 
-[ext_resource type="Texture2D" uid="uid://buty18qx4u62a" path="res://assets/graphics/custom_tools/duct_tape.png" id="1_nwwiv"]
+[ext_resource type="Texture2D" uid="uid://ets35kksxof8" path="res://assets/graphics/custom_tools/duct_tape.png" id="1_nwwiv"]
 
 [node name="Ducttape" type="Node2D"]
 
