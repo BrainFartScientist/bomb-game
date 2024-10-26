@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b7rqkmih4nqjp"]
+[gd_scene load_steps=37 format=3 uid="uid://bpncfgpx27jw1"]
 
 [ext_resource type="Texture2D" uid="uid://h2i6htkqehgc" path="res://assets/player/AnimationSheet_Character.png" id="1_2c3qt"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6vlnd"]
@@ -259,6 +259,7 @@ animations = [{
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_6vlnd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
