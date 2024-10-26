@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb43s0s6ipdk1"
-path="res://.godot/imported/64X128_Walking_Free.png-965b62b008d67b79b5df842b96965b0d.ctex"
+uid="uid://djgy76rt4eu8i"
+path="res://.godot/imported/64X128_Idle_Free.png-0766d90a74cc3e9bb640c9f82754ed32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc01/64X128_Walking_Free.png"
-dest_files=["res://.godot/imported/64X128_Walking_Free.png-965b62b008d67b79b5df842b96965b0d.ctex"]
+source_file="res://assets/npcs/npc01/64X128_Idle_Free.png"
+dest_files=["res://.godot/imported/64X128_Idle_Free.png-0766d90a74cc3e9bb640c9f82754ed32.ctex"]
 
 [params]
 
