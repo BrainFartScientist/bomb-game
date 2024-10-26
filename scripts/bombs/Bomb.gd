@@ -7,6 +7,8 @@ var state = BombState.new()
 var screws = {}
 var tool: GameState.Tools = GameState.Tools.None
 
+var is_open = false
+
 const tool_icons = {
 	GameState.Tools.None: {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_086.png"), "hotzone": Vector2.ZERO},
 	GameState.Tools.Screwdriver: {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_005.png"), "hotzone": Vector2(50, 0)},
@@ -16,16 +18,10 @@ const tool_icons = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	init_members()
-	if GameState.get_bomb_state(id) != null:
-		init_screws(false)
-		state = GameState.get_bomb_state(id)
-	else:
-		init_screws()
-		init_state()
-		GameState.set_bomb_state(id, state)
-	trigger_update()
-	
-	self.tool = GameState.get_tool()
+	init_screws()
+	init_state()
+	trigger_update()	
+	self.tool = GameState.Tools.None
 	Input.set_custom_mouse_cursor(tool_icons[self.tool].texture, 0, tool_icons[self.tool].hotzone)
 
 var pressed = false
@@ -77,6 +73,8 @@ func hover():
 	
 
 func _input(event):
+	if !is_open:
+		return
 	if event is InputEventMouseMotion:
 		hover()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
