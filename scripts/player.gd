@@ -26,6 +26,11 @@ func _process(delta):
 			nearerst_node.set_outline(true)
 		if Input.is_action_just_pressed("use_item") and nearerst_node.has_method("interact"):
 			nearerst_node.interact(self)
+	if Input.is_action_just_pressed("use_item") and cooldown <= 0:
+		# TODO DO SOMETHING
+		cooldown = 20 # or lower
+	cooldown -= delta
+	
 	
 func add_interactive_element(new_element: Variant):
 	for element in interactiveElements:
