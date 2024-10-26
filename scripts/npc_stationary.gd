@@ -36,6 +36,7 @@ func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		$Dialog.stop()
 		player_in_chat_zone = false
+		is_chatting = false
 
 
 func _on_dialog_dialog_finished() -> void:

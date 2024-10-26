@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=13 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://bpncfgpx27jw1" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="PackedScene" uid="uid://c8sj5wg0pnhg" path="res://scenes/npcs/npc_blue_bird.tscn" id="6_u7xwo"]
+[ext_resource type="PackedScene" uid="uid://bohfoxwtpivgy" path="res://scenes/npcs/gangster_01.tscn" id="7_yxqit"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1460,6 +1461,23 @@ terrain_set_0/terrain_1/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_gbuud")
 sources/1 = SubResource("TileSetAtlasSource_y5upk")
 
+[sub_resource type="Curve2D" id="Curve2D_cx1b2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 477.203, 41.9604, 0, 0, 0, 0, 476.021, 400.349, 0, 0, 0, 0, -4.98169, 396.05, 0, 0, 0, 0, -6.16638, 46.2589, 0, 0, 0, 0, 474.833, 41.9604)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_7btgv"]
+script/source = "extends PathFollow2D
+
+var speed = 0.1
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	progress_ratio += delta * speed
+"
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 
@@ -1483,3 +1501,17 @@ zoom = Vector2(0.75, 0.75)
 
 [node name="NPCBlueBird" parent="." instance=ExtResource("6_u7xwo")]
 position = Vector2(2543, 754)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(3380.41, 711.907)
+scale = Vector2(1.68815, 1.86111)
+curve = SubResource("Curve2D_cx1b2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(84.8794, 45.4453)
+scale = Vector2(0.592364, 0.537314)
+progress = 1280.26
+rotates = false
+script = SubResource("GDScript_7btgv")
+
+[node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("7_yxqit")]
