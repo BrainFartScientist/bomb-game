@@ -22,6 +22,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		set_outline(false)
 
 func interact(player: Node):
+	if player.holdingTool == "hammer":
 		window_sprite.hide()
 		queue_free()
 

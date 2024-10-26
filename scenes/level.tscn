@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=16 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_lv1my"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
-[ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://scenes/tools/hammer.tscn" id="3_7fmch"]
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="5_a2u4c"]
-[ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="5_c15bm"]
+[ext_resource type="PackedScene" path="res://scenes/window.tscn" id="5_c15bm"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_cueb0"]
 [ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
@@ -1496,9 +1495,6 @@ position = Vector2(-12, 74)
 tile_set = SubResource("TileSet_rkmxv")
 script = SubResource("GDScript_qp784")
 
-[node name="Hammer" parent="." instance=ExtResource("3_7fmch")]
-position = Vector2(2689, 481)
-
 [node name="Window" parent="." instance=ExtResource("5_c15bm")]
 position = Vector2(2605, 770)
 
@@ -1547,27 +1543,16 @@ script = ExtResource("9_nv0lq")
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
 
-[node name="ducttape" parent="." instance=ExtResource("8_clihd")]
-position = Vector2(3187, 999)
-scale = Vector2(0.6, 0.6)
-tool = "ducttape"
-script = null
-
-[node name="screwdriver" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(3080, 874)
-scale = Vector2(0.6, 0.6)
-script = null
-
 [node name="hammer" parent="." instance=ExtResource("8_clihd")]
 position = Vector2(3056, 1096)
 scale = Vector2(0.6, 0.6)
 tool = "hammer"
+
+[node name="screwdriver" parent="." instance=ExtResource("8_clihd")]
+position = Vector2(3209, 1064)
+scale = Vector2(0.6, 0.6)
+
+[node name="ducttape" parent="." instance=ExtResource("8_clihd")]
+position = Vector2(3016, 998)
+scale = Vector2(0.6, 0.6)
+tool = "ducttape"

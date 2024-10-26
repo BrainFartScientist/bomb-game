@@ -45,6 +45,6 @@ func interact(player: Node):
 		player.set_holding_tool(tool)
 		switch_tools(temp)
 	else:
-		player.holdingTool = tool
+		player.set_holding_tool(tool)
 		queue_free()
 	pass
