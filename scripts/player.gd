@@ -22,6 +22,7 @@ func _process(delta):
 			nearest_length = position.distance_to(element.position)
 	
 	if nearerst_node != null:
+		
 		if nearerst_node.has_method("set_outline"):
 			nearerst_node.set_outline(true)
 		if Input.is_action_just_pressed("use_item") and nearerst_node.has_method("interact"):
