@@ -20,6 +20,13 @@ func start():
 	current_dialog_id = -1
 	next_script()
 	
+func stop():
+	if !d_active:
+		return
+	$NinePatchRect.visible = false
+	d_active = false
+	current_dialog_id = 0
+	
 func load_dialog():
 	var file = FileAccess.open("res://dialogs/boss_dialog_lvl1.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
