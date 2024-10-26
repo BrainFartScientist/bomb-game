@@ -1,27 +1,49 @@
 extends Node2D
 class_name Bomb
 
+@export var id = ""
+
 var state = BombState.new()
 var screws = {}
+var tool: GameState.Tools = GameState.Tools.None
+
+const tool_icons = {
+	GameState.Tools.None: {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_086.png"), "hotzone": Vector2.ZERO},
+	GameState.Tools.Screwdriver: {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_005.png"), "hotzone": Vector2(50, 0)},
+	GameState.Tools.Ducttape: {"texture": preload("res://assets/graphics/custom_tools/duct_tape.png"), "hotzone": Vector2(25, 25)},
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	init_screws()
-	init_state()
+	init_members()
+	if GameState.get_bomb_state(id) != null:
+		init_screws(false)
+		state = GameState.get_bomb_state(id)
+	else:
+		init_screws()
+		init_state()
+		GameState.set_bomb_state(id, state)
 	trigger_update()
+	
+	self.tool = GameState.get_tool()
+	Input.set_custom_mouse_cursor(tool_icons[self.tool].texture, 0, tool_icons[self.tool].hotzone)
 
 var pressed = false
+
+func init_members():
+	pass
 
 func init_state():
 	pass
 
-func init_screws():
+func init_screws(with_state: bool = true):
 	for element in get_children():
 		if element is Screw:
 			if !screws.has(element.group):
 				screws[element.group] = []
 			screws[element.group].append(element)
-			state.setProp(element.id, element.default_state)
+			if with_state:
+				state.setProp(element.id, element.default_state)
 
 func update_screws():
 	for group in screws:
@@ -62,7 +84,7 @@ func _input(event):
 			pressed = true
 			var top_node = topmost_hovered_node()
 			if top_node != null:
-				top_node.clicked("Item here", self)
+				top_node.clicked(self.tool, self)
 				trigger_update()
 				hover()
 		elif event.is_released():

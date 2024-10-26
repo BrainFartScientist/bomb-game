@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccrpa3xt77168"]
+[gd_scene load_steps=26 format=3 uid="uid://ccrpa3xt77168"]
 
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01.gd" id="1_lqajg"]
 [ext_resource type="Texture2D" uid="uid://j8x2kauegyv0" path="res://assets/bombs/Bomb_01_base.png" id="2_ufy5h"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7dgoxhqegkm" path="res://assets/bombs/Bomb_01_screw.png" id="9_rkxac"]
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01_Cover.gd" id="9_urktr"]
 [ext_resource type="Script" path="res://scripts/bombs/Screw.gd" id="10_sfb4s"]
+[ext_resource type="Script" path="res://scripts/bombs/ExitBombButton.gd" id="12_0i141"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eubfi"]
 shader = ExtResource("4_wuv1w")
@@ -110,6 +111,7 @@ shader_parameter/hasOutline = false
 
 [node name="Bomb_01" type="Node2D"]
 script = ExtResource("1_lqajg")
+id = "bomb_01"
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(600, 400)
@@ -174,3 +176,12 @@ sprite_frames = SubResource("SpriteFrames_cfl6e")
 animation = &"idle_screw"
 script = ExtResource("10_sfb4s")
 id = "right_top_screw"
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("bomb")]
+offset_left = 1209.0
+offset_top = 715.0
+offset_right = 1389.0
+offset_bottom = 795.0
+text = "Leave"
+script = ExtResource("12_0i141")
+bomb = NodePath("..")

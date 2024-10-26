@@ -3,10 +3,12 @@ var cables: AnimatedSprite2D;
 var cover: ActiveBombElementSprite
 var inside: ActiveBombElementSprite
 
-func init_state():
+func init_members():
 	cables = get_node("Cables") as AnimatedSprite2D
 	cover = get_node("Cover") as ActiveBombElementSprite
 	inside = get_node("Inside") as ActiveBombElementSprite
+	
+func init_state():
 	state.setProp("CablesFixed", false)
 	state.setProp("CoverOpen", false)
 

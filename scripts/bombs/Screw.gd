@@ -4,5 +4,6 @@ class_name Screw
 @export var group = "cover"
 @export var default_state = true
 
-func clicked(item: String, bomb: Bomb):
-	bomb.state.setProp(id, !bomb.state.getProp(id))
+func clicked(item: GameState.Tools, bomb: Bomb):
+	if item == GameState.Tools.Screwdriver:
+		bomb.state.setProp(id, !bomb.state.getProp(id))
