@@ -19,4 +19,6 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func _process(delta):
 	if Input.is_action_just_pressed("chat") and player_in_range:
-		GameState.access_bomb("res://scenes/level.tscn", "res://scenes/bomb.tscn")
+		get_tree().root.get_child(0).open_bomb("Bomb_01")
+		#GameState.access_bomb("res://scenes/level.tscn", "res://scenes/bomb.tscn")
+		pass

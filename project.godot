@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://bomb.tscn"
 
-[autoload]
-
-GameState="*res://scripts/game_state.gd"
-
 [display]
 
 window/size/viewport_width=1400
