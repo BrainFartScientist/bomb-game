@@ -1,17 +1,20 @@
 extends Node2D
+@onready var window_sprite: Sprite2D = $WindowSprite
+@onready var collisionsquare: CollisionShape2D = $CollisionArea/Collisionsquare
+@onready var collision_area: Area2D = $CollisionArea
+@onready var static_body_2d: StaticBody2D = $StaticBody2D
 
-var player_in_range = false;
-var has_outline = false
+var has_outline : bool
+
 
 var sprite
 
 func _ready() -> void:
-	sprite = get_node("Bomb01Overworld")
+	sprite = get_node("WindowSprite")
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.add_interactive_element(self)
-
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
@@ -19,7 +22,9 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		set_outline(false)
 
 func interact(player: Node):
-	get_tree().root.get_child(0).open_bomb("Bomb_01", player.holdingTool)
+	if player.holdingTool == "hammer":
+		window_sprite.hide()
+		queue_free()
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline

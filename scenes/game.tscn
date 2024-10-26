@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5bmp7r40r386"]
+[gd_scene load_steps=4 format=3 uid="uid://c5bmp7r40r386"]
 
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="1_n8qu0"]
+[ext_resource type="Script" path="res://scripts/tool.gd" id="2_ccaii"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5iv48"]
 
@@ -17,3 +18,12 @@ zoom = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_5iv48")
+
+[node name="Tool" type="Node2D" parent="."]
+script = ExtResource("2_ccaii")
+
+[node name="AttackTool" type="Node2D" parent="Tool"]
+
+[node name="UseTool" type="Node2D" parent="Tool"]
+
+[connection signal="useTool" from="Player" to="Tool" method="_on_player_use_tool"]

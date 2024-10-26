@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://mgjy8atwfque"]
+[gd_scene load_steps=43 format=3 uid="uid://djey0nqla33l6"]
 
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="1_wamw6"]
 [ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://scenes/npcs/dialog.tscn" id="2_6neho"]

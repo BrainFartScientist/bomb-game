@@ -1,5 +1,5 @@
 extends ActiveBombElementAnimated
 
-func clicked(item: GameState.Tools, bomb: Bomb):
-	if item == GameState.Tools.Ducttape:
+func clicked(item: String, bomb: Bomb):
+	if item == "ducttape":
 		bomb.state.setProp("CablesFixed", true)

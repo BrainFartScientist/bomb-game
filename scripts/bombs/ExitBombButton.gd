@@ -7,6 +7,8 @@ func _ready() -> void:
 	pressed.connect(self.request_exit)
 
 func request_exit():
-	GameState.set_bomb_state(bomb.id, bomb.state)
-	GameState.leave_scene()
+	get_tree().root.get_child(0).leave_bomb()
+	pass
+	#GameState.set_bomb_state(bomb.id, bomb.state)
+	#GameState.leave_scene()
 	
