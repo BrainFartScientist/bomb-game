@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2hjbjkhfuh1d"]
+
+[ext_resource type="Texture2D" uid="uid://d3djx7300cw01" path="res://assets/graphics/custom_tools/frying_pan.png" id="1_o4d73"]
+
+[node name="FryingPan" type="Node2D"]
+
+[node name="FryingPanSprite" type="Sprite2D" parent="."]
+
+[node name="FryingPan" type="Sprite2D" parent="."]
+position = Vector2(-20, -3)
+scale = Vector2(1.23, 1.26)
+texture = ExtResource("1_o4d73")
