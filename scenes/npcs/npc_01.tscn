@@ -444,10 +444,10 @@ shape = SubResource("CircleShape2D_x4uxy")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Dialog" parent="." instance=ExtResource("4_oenq6")]
-offset_left = -793.0
-offset_top = -547.0
-offset_right = -793.0
-offset_bottom = -547.0
+offset_left = -167.0
+offset_top = -247.0
+offset_right = -167.0
+offset_bottom = -247.0
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
