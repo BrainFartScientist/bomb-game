@@ -6,7 +6,7 @@ class_name ActiveBombElementSprite
 func _ready():
 	set_process_input(true)
 
-func clicked(item: String, bomb: Bomb):
+func clicked(item: GameState.Tools, bomb: Bomb):
 	print("Click Event: Node: %s Item: %s Bomb: %s" % [self, item, bomb])
 
 func set_outline(hasOutline: bool):
