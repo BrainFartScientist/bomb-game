@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
+[ext_resource type="PackedScene" uid="uid://bpncfgpx27jw1" path="res://scenes/player.tscn" id="5_2rqd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1457,6 +1458,7 @@ sources/0 = SubResource("TileSetAtlasSource_gbuud")
 sources/1 = SubResource("TileSetAtlasSource_y5upk")
 
 [node name="Level" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(18, 76)
@@ -1467,12 +1469,14 @@ tile_set = SubResource("TileSet_rkmxv")
 position = Vector2(2689, 481)
 
 [node name="NPC01" parent="." instance=ExtResource("4_tk0dy")]
-position = Vector2(2783, 678)
+position = Vector2(2782, 678)
 
 [node name="Player" parent="." instance=ExtResource("5_2rqd1")]
 position = Vector2(2808, 902)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0.5, 0)
+zoom = Vector2(0.75, 0.75)
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
