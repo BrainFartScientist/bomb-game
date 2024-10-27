@@ -34,17 +34,16 @@ func _process(delta):
 	# Set the RayCast2D direction based on the cone's angle
 	var i = 0
 	for ray in raycasts:
+		if ray.is_colliding():
+			var collider = ray.get_collider()
+			if collider != null:
+				if (collider.name == "Player"): # Ensure your player is in the "players" group
+					get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+		else:
+			pass	
 		ray.rotation = (rotationangle + angles[i])
 		ray.force_raycast_update()
 		i += 1
-
-	# Check if the raycast hit something
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		if (collider.name == "Player"): # Ensure your player is in the "players" group
-			get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
-	else:
-		pass
 
 	# Update the sprite flip based on movement direction
 	if current_move_vec.x > last_vector.x:
