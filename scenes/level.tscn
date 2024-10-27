@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=25 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
@@ -7,7 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
-[ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
+[ext_resource type="Script" path="res://scenes/tool_rect.gd" id="7_1a8wk"]
+[ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_7n6x1"]
+[ext_resource type="Script" path="res://scenes/holding_tool.gd" id="7_ajw06"]
+[ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="7_t6o67"]
+[ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="8_clihd"]
+[ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_pxid8"]
 [ext_resource type="PackedScene" uid="uid://b320nhkhxu34k" path="res://scenes/npcs/npc_blue_bird.tscn" id="9_rml2h"]
 [ext_resource type="Script" path="res://scripts/npc_stationary.gd" id="10_ws6rw"]
 [ext_resource type="PackedScene" uid="uid://c0dgc3my0khxi" path="res://scenes/npcs/npc_white_bird.tscn" id="11_qfb5x"]
@@ -3482,6 +3487,9 @@ position = Vector2(2782, 678)
 [node name="Player" parent="." instance=ExtResource("5_2rqd1")]
 position = Vector2(2808, 902)
 
+[node name="holdingToolVisual" type="Sprite2D" parent="Player"]
+script = ExtResource("7_ajw06")
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Gui" type="Control" parent="Player"]
@@ -3492,8 +3500,27 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Player/Gui"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -19.0
+offset_top = 129.5
+offset_right = 26.0
+offset_bottom = 177.5
+texture = ExtResource("7_7n6x1")
+expand_mode = 1
+
+[node name="ToolRect" type="TextureRect" parent="Player/Gui"]
+layout_mode = 0
+offset_left = -15.5
+offset_top = 133.5
+offset_right = 24.5
+offset_bottom = 173.5
+expand_mode = 1
+script = ExtResource("7_1a8wk")
+
+[node name="equip" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("7_t6o67")
+
+[node name="music" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_pxid8")
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2533, 162)
