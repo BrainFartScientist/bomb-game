@@ -3713,35 +3713,6 @@ stream = ExtResource("8_pxid8")
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2533, 162)
 
-[node name="ducttape" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(742, 1241)
-scale = Vector2(0.6, 0.6)
-tool = "ducttape"
-script = null
-
-[node name="screwdriver" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(303, 107)
-scale = Vector2(0.6, 0.6)
-script = null
-
 [node name="NPCBlueBird" parent="." instance=ExtResource("9_rml2h")]
 position = Vector2(1698, 91)
 script = ExtResource("10_ws6rw")

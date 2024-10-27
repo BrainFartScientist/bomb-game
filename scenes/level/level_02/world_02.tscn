@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c5kcskavjru8u"]
+[gd_scene load_steps=16 format=4 uid="uid://c5kcskavjru8u"]
 
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="1_tspu8"]
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="2_mlxra"]
@@ -10,8 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_b7ml8"]
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="9_y48v1"]
 [ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="10_355rt"]
+[ext_resource type="PackedScene" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="11_tk83f"]
-[ext_resource type="PackedScene" uid="uid://dm2rusirlvueb" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgful"]
 texture = ExtResource("1_tspu8")
