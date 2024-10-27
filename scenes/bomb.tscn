@@ -201,12 +201,14 @@ stream = ExtResource("14_3vkb8")
 
 [node name="plateSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_tc1en")
+volume_db = -15.929
 
 [node name="spraySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ik0ah")
 
 [node name="deniedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_3uxq4")
+volume_db = -5.622
 
 [node name="buttonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_5lji0")
