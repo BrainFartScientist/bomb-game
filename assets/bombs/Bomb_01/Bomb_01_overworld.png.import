@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca2roil5tqo38"
-path="res://.godot/imported/Bomb_01_inside.png-8eccb28979a72579e7dbf31e584b19f6.ctex"
+uid="uid://ccsifys5bmj64"
+path="res://.godot/imported/Bomb_01_overworld.png-a5dcaac941f9861c2f18b75776c0fe1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bombs/Bomb_01_inside.png"
-dest_files=["res://.godot/imported/Bomb_01_inside.png-8eccb28979a72579e7dbf31e584b19f6.ctex"]
+source_file="res://assets/bombs/Bomb_01/Bomb_01_overworld.png"
+dest_files=["res://.godot/imported/Bomb_01_overworld.png-a5dcaac941f9861c2f18b75776c0fe1f.ctex"]
 
 [params]
 

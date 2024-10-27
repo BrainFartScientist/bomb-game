@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxsexoafhxhqg"]
+
+[ext_resource type="Script" path="res://scripts/bombs/bomb_display.gd" id="1_xxoui"]
+[ext_resource type="Texture2D" uid="uid://bbq5v6wf28wpw" path="res://assets/bombs/Bomb_02/Bomb_02_display.png" id="1_yvg2m"]
+
+[node name="BombDisplay" type="Node2D"]
+script = ExtResource("1_xxoui")
+
+[node name="Bomb02Display" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_yvg2m")
+
+[node name="NumberDisplay" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -30.0
+offset_right = 21.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1

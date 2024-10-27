@@ -7,7 +7,7 @@ var state = BombState.new()
 var screws = {}
 var tool: String = ""
 
-var is_open = false
+var is_open = true
 
 const tool_icons = {
 	"": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_086.png"), "hotzone": Vector2.ZERO},

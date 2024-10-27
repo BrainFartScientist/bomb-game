@@ -1,0 +1,280 @@
+[gd_scene load_steps=18 format=3 uid="uid://brinjc6g3uchl"]
+
+[ext_resource type="Script" path="res://scripts/bombs/Bomb_02/Bomb_02.gd" id="1_cavgc"]
+[ext_resource type="Texture2D" uid="uid://ch8b70av3vcek" path="res://assets/bombs/Bomb_02/Bomb_02_base.png" id="2_tt0ck"]
+[ext_resource type="Script" path="res://scripts/bombs/ExitBombButton.gd" id="3_gdota"]
+[ext_resource type="PackedScene" uid="uid://dxsexoafhxhqg" path="res://scenes/level/level_02/bomb_display.tscn" id="4_t5h1r"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="5_efw51"]
+[ext_resource type="Texture2D" uid="uid://bs6wcpnbe4qxd" path="res://assets/bombs/Bomb_02/Bomb_02_button.png" id="5_tvts3"]
+[ext_resource type="Script" path="res://scripts/bomb_button.gd" id="6_hyn5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xa0g"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xaufm"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idoby"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vsmv"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4f70e"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pueac"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6g0w5"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgrwm"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwudc"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq4gx"]
+shader = ExtResource("5_efw51")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 2.124
+shader_parameter/hasOutline = false
+
+[node name="Bomb02" type="Node2D"]
+script = ExtResource("1_cavgc")
+
+[node name="Bomb02Base" type="Sprite2D" parent="."]
+position = Vector2(699, 402)
+texture = ExtResource("2_tt0ck")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(702, 397)
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("bomb")]
+offset_left = 1209.0
+offset_top = 715.0
+offset_right = 1389.0
+offset_bottom = 795.0
+text = "Leave"
+script = ExtResource("3_gdota")
+bomb = NodePath("..")
+
+[node name="BombDisplay_1" parent="." instance=ExtResource("4_t5h1r")]
+position = Vector2(152, 288)
+
+[node name="BombDisplay_2" parent="." instance=ExtResource("4_t5h1r")]
+position = Vector2(216, 288)
+
+[node name="BombDisplay_3" parent="." instance=ExtResource("4_t5h1r")]
+position = Vector2(280, 288)
+
+[node name="BombDisplay_4" parent="." instance=ExtResource("4_t5h1r")]
+position = Vector2(344, 288)
+
+[node name="BombButton_1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6xa0g")
+position = Vector2(185, 369)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+
+[node name="Label" type="Label" parent="BombButton_1"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="BombButton_2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xaufm")
+position = Vector2(249, 369)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 2
+
+[node name="Label" type="Label" parent="BombButton_2"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_idoby")
+position = Vector2(313, 369)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 3
+
+[node name="Label" type="Label" parent="BombButton_3"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0vsmv")
+position = Vector2(185, 433)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 4
+
+[node name="Label" type="Label" parent="BombButton_4"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_5" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4f70e")
+position = Vector2(249, 433)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 5
+
+[node name="Label" type="Label" parent="BombButton_5"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_6" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pueac")
+position = Vector2(313, 433)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 6
+
+[node name="Label" type="Label" parent="BombButton_6"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_7" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6g0w5")
+position = Vector2(185, 497)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 7
+
+[node name="Label" type="Label" parent="BombButton_7"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_8" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jgrwm")
+position = Vector2(249, 497)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 8
+
+[node name="Label" type="Label" parent="BombButton_8"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_9" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jwudc")
+position = Vector2(313, 497)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 9
+
+[node name="Label" type="Label" parent="BombButton_9"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BombButton_10" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bq4gx")
+position = Vector2(249, 561)
+texture = ExtResource("5_tvts3")
+script = ExtResource("6_hyn5d")
+number = 0
+
+[node name="Label" type="Label" parent="BombButton_10"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

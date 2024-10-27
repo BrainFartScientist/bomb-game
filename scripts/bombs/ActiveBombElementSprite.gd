@@ -3,9 +3,6 @@ class_name ActiveBombElementSprite
 
 @export var is_active = true
 
-func _ready():
-	set_process_input(true)
-
 func clicked(item: String, bomb: Bomb):
 	print("Click Event: Node: %s Item: %s Bomb: %s" % [self, item, bomb])
 

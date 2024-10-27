@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5uchwvs27ql5"
-path="res://.godot/imported/Bomb_01_cables.png-4d5a2d37b00b93ace86f53e7e5319d7a.ctex"
+uid="uid://bl7dgoxhqegkm"
+path="res://.godot/imported/Bomb_01_screw.png-66dfe10e08558d10d4eb27b0c060bfd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bombs/Bomb_01_cables.png"
-dest_files=["res://.godot/imported/Bomb_01_cables.png-4d5a2d37b00b93ace86f53e7e5319d7a.ctex"]
+source_file="res://assets/bombs/Bomb_01/Bomb_01_screw.png"
+dest_files=["res://.godot/imported/Bomb_01_screw.png-66dfe10e08558d10d4eb27b0c060bfd5.ctex"]
 
 [params]
 

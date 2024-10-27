@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwmgbcc4rbbqq"
-path="res://.godot/imported/Bomb_01_cover.png-2eddbf4a7182bd84ab203388b9a2d2f2.ctex"
+uid="uid://b5uchwvs27ql5"
+path="res://.godot/imported/Bomb_01_cables.png-0c51bc9f29ef938ae3f4b068cd2336e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bombs/Bomb_01_cover.png"
-dest_files=["res://.godot/imported/Bomb_01_cover.png-2eddbf4a7182bd84ab203388b9a2d2f2.ctex"]
+source_file="res://assets/bombs/Bomb_01/Bomb_01_cables.png"
+dest_files=["res://.godot/imported/Bomb_01_cables.png-0c51bc9f29ef938ae3f4b068cd2336e6.ctex"]
 
 [params]
 
