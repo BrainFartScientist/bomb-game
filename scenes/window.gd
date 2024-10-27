@@ -29,6 +29,7 @@ func interact(player: Node):
 			static_body_2d.queue_free()
 			destroyed = true
 
+
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
 	sprite.material.set("shader_param/hasOutline", self.has_outline)
