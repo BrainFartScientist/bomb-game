@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c5kcskavjru8u"]
+[gd_scene load_steps=15 format=4 uid="uid://c5kcskavjru8u"]
 
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="1_tspu8"]
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="2_mlxra"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_b7ml8"]
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="9_y48v1"]
 [ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="10_355rt"]
+[ext_resource type="PackedScene" uid="uid://dm2rusirlvueb" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgful"]
 texture = ExtResource("1_tspu8")
@@ -856,7 +857,7 @@ tile_map_data = PackedByteArray("AAAHAAoAAQAIABIAAAAFAAwAAQAAAAoAAAAGAAwAAQAEAAo
 tile_set = SubResource("TileSet_aa4sm")
 
 [node name="Player" parent="." instance=ExtResource("3_lx7rs")]
-position = Vector2(302, 200)
+position = Vector2(315, 217)
 
 [node name="holdingToolVisual" type="Sprite2D" parent="Player"]
 script = ExtResource("4_ug340")
@@ -912,12 +913,12 @@ position = Vector2(1234, 312)
 scale = Vector2(0.5, 0.5)
 tool = "axe"
 
-[node name="bomb" parent="." instance=ExtResource("10_355rt")]
-position = Vector2(113, 1053)
-
 [node name="wd40" parent="." instance=ExtResource("10_355rt")]
 position = Vector2(1141, 423)
 tool = "wd_40"
+
+[node name="Bomb02Overworld" parent="." instance=ExtResource("11_6805m")]
+position = Vector2(110, 1074)
 
 [node name="ducttape" parent="." instance=ExtResource("10_355rt")]
 position = Vector2(241, 886)
