@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
 [ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://scenes/tools/hammer.tscn" id="3_7fmch"]
 [ext_resource type="Texture2D" uid="uid://reay1ylv7hmf" path="res://scenes/Tür.png" id="3_qqlcy"]
-[ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
 [ext_resource type="Script" path="res://scenes/tool_rect.gd" id="7_1a8wk"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bmfqvsiqcmr66" path="res://scenes/npcs/npc_orange_cat.tscn" id="12_mlerq"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="18_mglnm"]
 [ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="19_764ul"]
+[ext_resource type="PackedScene" uid="uid://c8inam3etj58u" path="res://scenes/npcs/npc_racoon.tscn" id="20_2o1fi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -3489,9 +3489,6 @@ tile_set = SubResource("TileSet_m4ign")
 [node name="Hammer" parent="." instance=ExtResource("3_7fmch")]
 position = Vector2(2689, 481)
 
-[node name="NPC01" parent="." instance=ExtResource("4_tk0dy")]
-position = Vector2(2782, 678)
-
 [node name="Player" parent="." instance=ExtResource("5_2rqd1")]
 position = Vector2(2808, 902)
 
@@ -3562,3 +3559,7 @@ rotates = false
 script = ExtResource("18_mglnm")
 
 [node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("19_764ul")]
+
+[node name="NPCRacoon" parent="." instance=ExtResource("20_2o1fi")]
+position = Vector2(2860, 674)
+script = ExtResource("10_ws6rw")
