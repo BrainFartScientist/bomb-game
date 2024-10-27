@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 	if xdirection > 0:
 		animated_sprite.flip_h = false
 		holdingToolVisual.flip_h = false
-	elif direction < 0:
+	elif xdirection < 0:
 		animated_sprite.flip_h = true
 		if holdingTool != "wd_40":
 			holdingToolVisual.flip_h = true
@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	# Play animations
-	if direction || vertical_direction != 0:
+	if xdirection || ydirection != 0:
 		animated_sprite.play("run")
 	else: animated_sprite.play("idle")
 	
