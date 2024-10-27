@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl7dgoxhqegkm"
-path="res://.godot/imported/Bomb_01_screw.png-6f4a0fb3b09d9a948b446828155595ed.ctex"
+uid="uid://cn42hqdwx3084"
+path="res://.godot/imported/Bomb_02_valve_open.png-f39556f92c8f7325ded1f7187fed7454.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bombs/Bomb_01_screw.png"
-dest_files=["res://.godot/imported/Bomb_01_screw.png-6f4a0fb3b09d9a948b446828155595ed.ctex"]
+source_file="res://assets/bombs/Bomb_02/Bomb_02_valve_open.png"
+dest_files=["res://.godot/imported/Bomb_02_valve_open.png-f39556f92c8f7325ded1f7187fed7454.ctex"]
 
 [params]
 

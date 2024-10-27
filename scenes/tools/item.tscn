@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://btkhlmq5bcmfx"]
+[gd_scene load_steps=18 format=3 uid="uid://cwq75mpb28ixg"]
 
 [ext_resource type="Script" path="res://scenes/tools/item.gd" id="1_77mqx"]
 [ext_resource type="Texture2D" uid="uid://ffl03i5jkbve" path="res://assets/graphics/generic_tools/genericItem_color_005.png" id="1_irvxp"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_3xbmj"]
 [ext_resource type="Texture2D" uid="uid://ets35kksxof8" path="res://assets/graphics/custom_tools/duct_tape.png" id="4_jro07"]
 [ext_resource type="Texture2D" uid="uid://dx230pr1e36m8" path="res://assets/graphics/generic_tools/genericItem_color_010.png" id="4_triay"]
+[ext_resource type="Texture2D" uid="uid://dcwbettdlokq1" path="res://assets/graphics/generic_tools/genericItem_color_020.png" id="6_tkiao"]
+[ext_resource type="Texture2D" uid="uid://c3ykgfk7ampte" path="res://assets/graphics/custom_tools/wd40.png" id="7_earet"]
+[ext_resource type="Texture2D" uid="uid://botac52q54p1u" path="res://assets/graphics/generic_tools/genericItem_color_048.png" id="8_w7c5t"]
+[ext_resource type="Texture2D" uid="uid://d3djx7300cw01" path="res://assets/graphics/custom_tools/frying_pan.png" id="9_gm2ch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e533c"]
 shader = ExtResource("2_3xbmj")
@@ -19,6 +23,30 @@ shader_parameter/line_thickness = 1.0
 shader_parameter/hasOutline = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xsaok"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fftp"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7jvk"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rbwgl"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wvgq"]
 shader = ExtResource("2_3xbmj")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
@@ -44,6 +72,26 @@ texture = ExtResource("4_jro07")
 visible = false
 material = SubResource("ShaderMaterial_xsaok")
 texture = ExtResource("4_triay")
+
+[node name="axe" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_2fftp")
+texture = ExtResource("6_tkiao")
+
+[node name="wd_40" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_x7jvk")
+texture = ExtResource("7_earet")
+
+[node name="torch" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rbwgl")
+texture = ExtResource("8_w7c5t")
+
+[node name="pan" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_1wvgq")
+texture = ExtResource("9_gm2ch")
 
 [node name="Area2D" type="Area2D" parent="."]
 

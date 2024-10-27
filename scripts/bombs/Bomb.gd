@@ -7,23 +7,27 @@ var state = BombState.new()
 var screws = {}
 var tool: String = ""
 
-var is_open = false
+var is_open = true
 
 const tool_icons = {
 	"": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_086.png"), "hotzone": Vector2.ZERO},
 	"screwdriver": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_005.png"), "hotzone": Vector2(50, 0)},
 	"ducttape": {"texture": preload("res://assets/graphics/custom_tools/duct_tape.png"), "hotzone": Vector2(25, 25)},
-	"hammer": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_010.png"), "hotzone": Vector2(50, 25)}
+	"hammer": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_010.png"), "hotzone": Vector2(50, 25)},
+	"axe": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_020.png"), "hotzone": Vector2(50, 25)},
+	"wd_40": {"texture": preload("res://assets/graphics/custom_tools/wd40.png"), "hotzone": Vector2(50, 25)},
+	"torch": {"texture": preload("res://assets/graphics/generic_tools/genericItem_color_048.png"), "hotzone": Vector2(60, 25)},
+	"pan": {"texture": preload("res://assets/graphics/custom_tools/frying_pan.png"), "hotzone": Vector2(60, 25)}
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.tool = ""
+	Input.set_custom_mouse_cursor(tool_icons[self.tool].texture, 0, tool_icons[self.tool].hotzone)
 	init_members()
 	init_screws()
 	init_state()
 	trigger_update()	
-	self.tool = ""
-	Input.set_custom_mouse_cursor(tool_icons[self.tool].texture, 0, tool_icons[self.tool].hotzone)
 
 var pressed = false
 

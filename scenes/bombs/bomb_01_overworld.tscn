@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_2lltn"]
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_01/bomb_01_overworld.gd" id="1_kvbvc"]
-[ext_resource type="Texture2D" uid="uid://ccsifys5bmj64" path="res://assets/bombs/Bomb_01_overworld.png" id="2_5it43"]
+[ext_resource type="Texture2D" uid="uid://ccsifys5bmj64" path="res://assets/bombs/Bomb_01/Bomb_01_overworld.png" id="2_5it43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vv0dx"]
 shader = ExtResource("1_2lltn")
