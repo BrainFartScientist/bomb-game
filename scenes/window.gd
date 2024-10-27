@@ -5,8 +5,7 @@ extends Node2D
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
 @onready var glass = $glass
 var has_outline : bool
-
-
+var destroyed  = false
 var sprite
 
 func _ready() -> void:
@@ -23,9 +22,11 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func interact(player: Node):
 	if player.holdingTool == "hammer":
-		glass.play(0)
-		window_sprite.hide()
-		queue_free()
+		if destroyed == false: 
+			glass.play()
+			window_sprite.hide()
+			static_body_2d.queue_free()
+			destroyed = true
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
