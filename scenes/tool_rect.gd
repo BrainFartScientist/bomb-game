@@ -10,3 +10,6 @@ const tool_icons = {
 func display_tool(tool: String):
 	texture = tool_icons[tool]
 	pass
+	
+func get_tool_icons(tool : String):
+	return tool_icons[tool]

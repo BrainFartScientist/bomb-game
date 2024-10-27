@@ -6,13 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://bpncfgpx27jw1" path="res://scenes/player.tscn" id="5_2rqd1"]
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="5_a2u4c"]
-[ext_resource type="PackedScene" path="res://scenes/window.tscn" id="5_c15bm"]
+[ext_resource type="PackedScene" uid="uid://c6kneh3hq7irx" path="res://scenes/window.tscn" id="5_c15bm"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
 [ext_resource type="PackedScene" uid="uid://c8sj5wg0pnhg" path="res://scenes/npcs/npc_blue_bird.tscn" id="6_u7xwo"]
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_cueb0"]
 [ext_resource type="PackedScene" uid="uid://bohfoxwtpivgy" path="res://scenes/npcs/gangster_01.tscn" id="7_yxqit"]
 [ext_resource type="PackedScene" path="res://scenes/tools/item.tscn" id="8_clihd"]
 [ext_resource type="Script" path="res://scenes/tool_rect.gd" id="9_nv0lq"]
+[ext_resource type="Script" path="res://scenes/holding_tool.gd" id="10_mh2dl"]
+[ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="11_easuq"]
+[ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="12_wxxuo"]
+[ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="13_gqqc5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1569,6 +1573,25 @@ rotates = false
 script = SubResource("GDScript_7btgv")
 
 [node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("7_yxqit")]
+[node name="holdingToolVisual" type="Sprite2D" parent="Player"]
+script = ExtResource("10_mh2dl")
+
+[node name="equip" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("11_easuq")
+volume_db = -18.819
+
+[node name="music" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("12_wxxuo")
+volume_db = -8.734
+pitch_scale = 2.37
+parameters/looping = true
+
+[node name="glass" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-1404, -451)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("13_gqqc5")
+volume_db = -11.675
+pitch_scale = 1.28
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
