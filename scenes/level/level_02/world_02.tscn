@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c5kcskavjru8u"]
+[gd_scene load_steps=21 format=4 uid="uid://c5kcskavjru8u"]
 
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="1_tspu8"]
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="2_mlxra"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_b7ml8"]
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="9_y48v1"]
 [ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="10_355rt"]
+[ext_resource type="PackedScene" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="11_tk83f"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="12_f2sll"]
 [ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
@@ -800,7 +801,7 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_ixd6x"]
 _data = {
-"points": PackedVector2Array(-2.57969, 20.1495, 2.57969, -20.1495, 1180, 480, -28.5905, -45.4084, 28.5905, 45.4084, 1436, 491, 57.181, -31.9541, -57.181, 31.9541, 1422, 1115, 53.8174, 53.8174, -53.8174, -53.8174, 380, 1087, -31.9541, 11.7725, 31.9541, -11.7725, 396, 989, -68.9535, 63.9081, 68.9535, -63.9081, 1162, 994, -80.7261, 144.634, 80.7261, -144.634, 1180, 480)
+"points": PackedVector2Array(-2.57969, 20.1495, 2.57969, -20.1495, 1180, 480, -28.5905, -45.4084, 28.5905, 45.4084, 1436, 491, 57.181, -31.9541, -57.181, 31.9541, 1422, 1115, 53.8174, 53.8174, -53.8174, -53.8174, 875, 1078, -31.9541, 11.7725, 31.9541, -11.7725, 911, 997, -68.9535, 63.9081, 68.9535, -63.9081, 1162, 994, -80.7261, 144.634, 80.7261, -144.634, 1180, 480)
 }
 point_count = 7
 
@@ -820,7 +821,7 @@ tile_map_data = PackedByteArray("AAAHAAoAAQAIABIAAAAFAAwAAQAAAAoAAAAGAAwAAQAEAAo
 tile_set = SubResource("TileSet_aa4sm")
 
 [node name="Player" parent="." instance=ExtResource("3_lx7rs")]
-position = Vector2(302, 200)
+position = Vector2(315, 217)
 
 [node name="holdingToolVisual" type="Sprite2D" parent="Player"]
 script = ExtResource("4_ug340")
@@ -876,13 +877,13 @@ position = Vector2(1234, 312)
 scale = Vector2(0.5, 0.5)
 tool = "axe"
 
-[node name="bomb" parent="." instance=ExtResource("10_355rt")]
-position = Vector2(113, 1053)
-
 [node name="wd40" parent="." instance=ExtResource("10_355rt")]
 position = Vector2(1141, 423)
 scale = Vector2(0.5, 0.5)
 tool = "wd_40"
+
+[node name="Bomb02Overworld" parent="." instance=ExtResource("11_6805m")]
+position = Vector2(110, 1074)
 
 [node name="ducttape" parent="." instance=ExtResource("10_355rt")]
 position = Vector2(241, 886)
@@ -938,7 +939,7 @@ script = ExtResource("12_f2sll")
 [node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("13_ijr2c")]
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(-13, 12)
+position = Vector2(0, 12)
 curve = SubResource("Curve2D_ixd6x")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
