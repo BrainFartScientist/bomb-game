@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_7n6x1"]
 [ext_resource type="Script" path="res://scenes/holding_tool.gd" id="7_ajw06"]
 [ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="7_t6o67"]
+[ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="8_clihd"]
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_pxid8"]
 [ext_resource type="PackedScene" path="res://scenes/npcs/npc_blue_bird.tscn" id="9_rml2h"]
 [ext_resource type="Script" path="res://scripts/npc_stationary.gd" id="10_ws6rw"]
