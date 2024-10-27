@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c5kcskavjru8u"]
+[gd_scene load_steps=20 format=4 uid="uid://c5kcskavjru8u"]
 
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="1_tspu8"]
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="2_mlxra"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="9_y48v1"]
 [ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="10_355rt"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="11_tk83f"]
+[ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="12_f2sll"]
+[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
+[ext_resource type="PackedScene" uid="uid://b575p33562icp" path="res://scenes/npcs/gangster_02.tscn" id="14_vl28o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgful"]
 texture = ExtResource("1_tspu8")
@@ -789,6 +792,18 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jgful")
 sources/1 = SubResource("TileSetAtlasSource_6flc0")
 
+[sub_resource type="Curve2D" id="Curve2D_xj35o"]
+_data = {
+"points": PackedVector2Array(25.362, 58.733, -25.362, -58.733, 157, 435, -84.0949, -28.0316, 84.0949, 28.0316, 631, 430, 92.104, -72.0814, -92.104, 72.0814, 807, 768, 50.7239, 41.38, -50.7239, -41.38, 157, 762, -66.742, 38.7104, 66.742, -38.7104, 157, 435)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ixd6x"]
+_data = {
+"points": PackedVector2Array(-2.57969, 20.1495, 2.57969, -20.1495, 1180, 480, -28.5905, -45.4084, 28.5905, 45.4084, 1436, 491, 57.181, -31.9541, -57.181, 31.9541, 1422, 1115, 53.8174, 53.8174, -53.8174, -53.8174, 380, 1087, -31.9541, 11.7725, 31.9541, -11.7725, 396, 989, -68.9535, 63.9081, 68.9535, -63.9081, 1162, 994, -80.7261, 144.634, 80.7261, -144.634, 1180, 480)
+}
+point_count = 7
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -909,3 +924,26 @@ position = Vector2(600, 165)
 
 [node name="Window12" parent="." instance=ExtResource("11_tk83f")]
 position = Vector2(600, 121)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-3, 1)
+curve = SubResource("Curve2D_xj35o")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(157, 435)
+rotation = -0.0105481
+rotates = false
+script = ExtResource("12_f2sll")
+
+[node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("13_ijr2c")]
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(-13, 12)
+curve = SubResource("Curve2D_ixd6x")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(1180, 480)
+rotates = false
+script = ExtResource("12_f2sll")
+
+[node name="Gagster01" parent="Path2D2/PathFollow2D" instance=ExtResource("14_vl28o")]
