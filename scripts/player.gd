@@ -85,29 +85,29 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction: -1, 0, 1
 	
 	# Get the horizontal input direction for letf/right movement.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
+	var xdirection := Input.get_axis("move_left", "move_right")
+	var ydirection := Input.get_axis("move_up", "move_down") 
+	if xdirection:
+		velocity.x = xdirection * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	# Flip the Sprite vertical
-	if direction > 0:
+	if xdirection > 0:
 		animated_sprite.flip_h = false
 		holdingToolVisual.flip_h = false
-	elif direction < 0:
+	elif xdirection < 0:
 		animated_sprite.flip_h = true
 		if holdingTool != "wd_40":
 			holdingToolVisual.flip_h = true
 		
 	# Get the vertical input direction for up/down movement.
-	var vertical_direction := Input.get_axis("move_up", "move_down")
-	if vertical_direction != 0:
-		velocity.y = vertical_direction * SPEED
+	if ydirection != 0:
+		velocity.y = ydirection * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	# Play animations
-	if direction || vertical_direction != 0:
+	if xdirection || ydirection != 0:
 		animated_sprite.play("run")
 	else: animated_sprite.play("idle")
 	

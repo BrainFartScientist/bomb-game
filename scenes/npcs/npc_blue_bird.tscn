@@ -301,30 +301,31 @@ animations = [{
 script = ExtResource("1_j8cuo")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(1, -0.5)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_eebf8")
 
 [node name="chat_detection_area" type="Area2D" parent="."]
-position = Vector2(-20, -68)
+position = Vector2(-21, -97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-position = Vector2(21, 30)
+position = Vector2(22, 78)
 shape = SubResource("CircleShape2D_x4uxy")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Dialog" parent="." instance=ExtResource("2_enpiq")]
-offset_left = -175.0
-offset_top = -234.0
-offset_right = -175.0
-offset_bottom = -234.0
+offset_left = -176.0
+offset_top = -263.0
+offset_right = -176.0
+offset_bottom = -263.0
 d_file = "res://dialogs/blue_bird_dialog_lvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -26)
+scale = Vector2(3, 3)
 material = SubResource("ShaderMaterial_wbq83")
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_7atsg")
 animation = &"walk_up"
 

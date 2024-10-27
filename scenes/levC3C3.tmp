@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=20 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_lv1my"]
@@ -8,16 +8,11 @@
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="5_a2u4c"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="5_c15bm"]
 [ext_resource type="PackedScene" uid="uid://bokajgctmqvq3" path="res://scenes/bombs/bomb_01_overworld.tscn" id="6_k1dbt"]
+[ext_resource type="PackedScene" uid="uid://b320nhkhxu34k" path="res://scenes/npcs/npc_blue_bird.tscn" id="6_u7xwo"]
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_cueb0"]
-[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="7_yxqit"]
+[ext_resource type="PackedScene" uid="uid://bohfoxwtpivgy" path="res://scenes/npcs/gangster_01.tscn" id="7_yxqit"]
 [ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
 [ext_resource type="Script" path="res://scenes/tool_rect.gd" id="9_nv0lq"]
-[ext_resource type="Script" path="res://scenes/holding_tool.gd" id="10_mh2dl"]
-[ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="11_easuq"]
-[ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="12_wxxuo"]
-[ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="13_gqqc5"]
-[ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="16_fw0id"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="18_phv3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1478,24 +1473,23 @@ script/source = "extends TileMapLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 "
 
-[sub_resource type="Curve2D" id="Curve2D_djgsu"]
+[sub_resource type="Curve2D" id="Curve2D_cx1b2"]
 _data = {
-"points": PackedVector2Array(-272.615, 242.324, 272.615, -242.324, 3333, 747, -210.252, 30.2906, 210.252, -30.2906, 3639, 795, 74.8355, 46.3267, -74.8355, -46.3267, 3643, 982, 35.6359, 85.5263, -35.6359, -85.5263, 3256, 932, 0, 0, 0, 0, 3333, 747)
+"points": PackedVector2Array(0, 0, 0, 0, 477.203, 41.9604, 0, 0, 0, 0, 476.021, 400.349, 0, 0, 0, 0, -4.98169, 396.05, 0, 0, 0, 0, -6.16638, 46.2589, 0, 0, 0, 0, 474.833, 41.9604)
 }
 point_count = 5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_833nb"]
-shader = ExtResource("18_phv3j")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
-shader_parameter/hasOutline = false
+[sub_resource type="GDScript" id="GDScript_7btgv"]
+script/source = "extends PathFollow2D
+
+var speed = 0.1
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	progress_ratio += delta * speed
+"
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -1559,25 +1553,22 @@ offset_bottom = 178.5
 expand_mode = 1
 script = ExtResource("9_nv0lq")
 
-[node name="holdingToolVisual" type="Sprite2D" parent="Player"]
-script = ExtResource("10_mh2dl")
+[node name="NPCBlueBird" parent="." instance=ExtResource("6_u7xwo")]
+position = Vector2(2543, 754)
 
-[node name="equip" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("11_easuq")
-volume_db = -18.819
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(3380.41, 711.907)
+scale = Vector2(1.68815, 1.86111)
+curve = SubResource("Curve2D_cx1b2")
 
-[node name="music" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("12_wxxuo")
-volume_db = -8.734
-pitch_scale = 2.37
-parameters/looping = true
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(84.8754, 45.4453)
+scale = Vector2(0.592364, 0.537314)
+progress = 1280.26
+rotates = false
+script = SubResource("GDScript_7btgv")
 
-[node name="glass" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(-1404, -451)
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("13_gqqc5")
-volume_db = -11.675
-pitch_scale = 1.28
+[node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("7_yxqit")]
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
@@ -1595,14 +1586,3 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(3016, 998)
 scale = Vector2(0.6, 0.6)
 tool = "ducttape"
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_djgsu")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(3333, 747)
-rotates = false
-script = ExtResource("16_fw0id")
-
-[node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("7_yxqit")]
-material = SubResource("ShaderMaterial_833nb")
