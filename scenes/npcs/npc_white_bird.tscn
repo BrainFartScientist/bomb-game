@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0dgc3my0khxi"]
+[gd_scene load_steps=45 format=3 uid="uid://c0dgc3my0khxi"]
 
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="1_6d8ev"]
 [ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://scenes/npcs/dialog.tscn" id="2_cyxoe"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_2f4tm"]
 [ext_resource type="Texture2D" uid="uid://2dvc38kbxyia" path="res://assets/npcs/npcbirdwhite/BIRDSPRITESHEET_White.png" id="3_okh5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebf8"]
@@ -9,6 +10,12 @@ size = Vector2(52, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4uxy"]
 radius = 205.548
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jn6aa"]
+shader = ExtResource("3_2f4tm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_et3t8"]
 atlas = ExtResource("3_okh5g")
@@ -312,10 +319,11 @@ offset_left = -175.0
 offset_top = -234.0
 offset_right = -175.0
 offset_bottom = -234.0
-d_file = "res://dialogs/blue_bird_dialog_lvl1.json"
+d_file = "res://dialogs/whitebirdlvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jn6aa")
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_7atsg")
 animation = &"walk_up"

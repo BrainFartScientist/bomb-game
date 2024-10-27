@@ -319,7 +319,7 @@ offset_left = -175.0
 offset_top = -234.0
 offset_right = -175.0
 offset_bottom = -234.0
-d_file = "res://dialogs/blue_bird_dialog_lvl1.json"
+d_file = "res://dialogs/bluebirdlvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
