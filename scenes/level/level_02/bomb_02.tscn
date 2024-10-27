@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://brinjc6g3uchl"]
+[gd_scene load_steps=61 format=3 uid="uid://brinjc6g3uchl"]
 
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_02/Bomb_02.gd" id="1_cavgc"]
 [ext_resource type="Texture2D" uid="uid://ch8b70av3vcek" path="res://assets/bombs/Bomb_02/Bomb_02_base.png" id="2_tt0ck"]
@@ -27,6 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://dqyu25camy5u5" path="res://assets/bombs/Bomb_02/Bomb_02_wd_hint.png" id="23_suvj0"]
 [ext_resource type="Texture2D" uid="uid://cn42hqdwx3084" path="res://assets/bombs/Bomb_02/Bomb_02_valve_open.png" id="23_ti7gk"]
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_02/Bomb_02_Valve.gd" id="24_yaihq"]
+[ext_resource type="AudioStream" uid="uid://b0db2ndj8ufh8" path="res://audio/screw.mp3" id="28_skwit"]
+[ext_resource type="AudioStream" uid="uid://cuag2bslt1wg0" path="res://audio/electricity.mp3" id="29_w5ofi"]
+[ext_resource type="AudioStream" uid="uid://c45dsrm385h38" path="res://audio/plate.mp3" id="30_ccugu"]
+[ext_resource type="AudioStream" uid="uid://cplue1yebr7gd" path="res://audio/spray.mp3" id="31_n5ncl"]
+[ext_resource type="AudioStream" uid="uid://bwm4cuff4pwnb" path="res://audio/wrong.mp3" id="32_51d6v"]
+[ext_resource type="AudioStream" uid="uid://dr434s7khpnp" path="res://audio/click-button.mp3" id="33_l5eve"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6xa0g"]
 shader = ExtResource("5_efw51")
@@ -271,7 +277,7 @@ script = ExtResource("1_cavgc")
 position = Vector2(699, 402)
 texture = ExtResource("2_tt0ck")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 position = Vector2(702, 397)
 
 [node name="ExitButton" type="Button" parent="." node_paths=PackedStringArray("bomb")]
@@ -576,3 +582,24 @@ sprite_frames = SubResource("SpriteFrames_r7cf5")
 animation = &"idle_hole"
 script = ExtResource("10_8f7hf")
 id = "right_down_screw"
+
+[node name="screwSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_skwit")
+volume_db = -5.622
+
+[node name="cableSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_w5ofi")
+
+[node name="plateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_ccugu")
+volume_db = -15.929
+
+[node name="spraySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_n5ncl")
+
+[node name="deniedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_51d6v")
+volume_db = -5.622
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_l5eve")
