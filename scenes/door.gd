@@ -19,10 +19,10 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		body.remove_interactive_element(self)
-		set_outline(false)
+		#set_outline(false)
 
 func interact(player: Node):
-	if player.holdingTool == "hammer":
+	if player.holdingTool == "axe":
 		if destroyed == false: 
 			door_sound.play()
 			door_sprite.hide()
@@ -32,4 +32,4 @@ func interact(player: Node):
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
-	sprite.material.set("shader_param/hasOutline", self.has_outline)
+	#sprite.material.set("shader_param/hasOutline", self.has_outline)
