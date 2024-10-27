@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cutwjguhfahxk"]
+
+[ext_resource type="Script" path="res://scripts/game_state.gd" id="1_bo4ob"]
+[ext_resource type="PackedScene" uid="uid://c5kcskavjru8u" path="res://scenes/level/level_02/world_02.tscn" id="2_bcsls"]
+[ext_resource type="PackedScene" uid="uid://brinjc6g3uchl" path="res://scenes/level/level_02/bomb_02.tscn" id="3_fdeni"]
+
+[node name="Level02" type="Node2D" node_paths=PackedStringArray("level")]
+script = ExtResource("1_bo4ob")
+level = NodePath("Welt")
+
+[node name="Welt" parent="." instance=ExtResource("2_bcsls")]
+
+[node name="Bomb_02" parent="." instance=ExtResource("3_fdeni")]
+visible = false
