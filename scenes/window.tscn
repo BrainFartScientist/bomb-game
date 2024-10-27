@@ -45,7 +45,7 @@ shape = SubResource("RectangleShape2D_x6vjh")
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_x6vjh")
 
-[node name="s" type="AudioStreamPlayer2D" parent="."]
+[node name="glass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_885gm")
 volume_db = 3.961
 
