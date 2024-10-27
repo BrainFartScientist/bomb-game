@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwq75mpb28ixg"]
+[gd_scene load_steps=10 format=3 uid="uid://btkhlmq5bcmfx"]
 
 [ext_resource type="Script" path="res://scenes/tools/item.gd" id="1_77mqx"]
 [ext_resource type="Texture2D" uid="uid://ffl03i5jkbve" path="res://assets/graphics/generic_tools/genericItem_color_005.png" id="1_irvxp"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_3xbmj"]
+[ext_resource type="Texture2D" uid="uid://ets35kksxof8" path="res://assets/graphics/custom_tools/duct_tape.png" id="4_jro07"]
+[ext_resource type="Texture2D" uid="uid://dx230pr1e36m8" path="res://assets/graphics/generic_tools/genericItem_color_010.png" id="4_triay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e533c"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qrl6"]
+shader = ExtResource("2_3xbmj")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsaok"]
 shader = ExtResource("2_3xbmj")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
@@ -16,9 +30,20 @@ radius = 71.007
 [node name="screwdriver" type="Node2D"]
 script = ExtResource("1_77mqx")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="screwdriver" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_e533c")
 texture = ExtResource("1_irvxp")
+
+[node name="ducttape" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_0qrl6")
+texture = ExtResource("4_jro07")
+
+[node name="hammer" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xsaok")
+texture = ExtResource("4_triay")
 
 [node name="Area2D" type="Area2D" parent="."]
 

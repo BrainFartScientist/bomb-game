@@ -51,8 +51,10 @@ func move(delta):
 		position += dir * speed * delta
 
 func _on_timer_timeout():
-	$Timer.wait_time = choose([0.5, 1, 1.5])
+	$Timer.wait_time = choose([0.5, 1, 1.5])	
 	current_state = choose([IDLE, NEW_DIR, MOVE])
+	if !is_chatting:
+		is_roaming = true
 
 func _on_dialog_dialog_finished() -> void:
 	is_chatting = false

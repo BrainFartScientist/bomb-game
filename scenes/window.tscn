@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dty25t77687gl"]
+
+[ext_resource type="Script" path="res://scenes/window.gd" id="1_c6xna"]
+[ext_resource type="Texture2D" uid="uid://cj016i8vlhb2f" path="res://assets/graphics/window.png" id="2_j0vmp"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_v88jw"]
+[ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="4_885gm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hspjs"]
+shader = ExtResource("2_v88jw")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbsbe"]
+radius = 56.0357
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6vjh"]
+size = Vector2(49, 49)
+
+[node name="Window" type="Node2D"]
+script = ExtResource("1_c6xna")
+
+[node name="WindowSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hspjs")
+texture = ExtResource("2_j0vmp")
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="interactionShape" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource("CircleShape2D_jbsbe")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 255
+collision_mask = 255
+
+[node name="Collisionsquare" type="CollisionShape2D" parent="CollisionArea"]
+visible = false
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_x6vjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Collisionsquare" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_x6vjh")
+
+[node name="glass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_885gm")
+volume_db = 3.961
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]
