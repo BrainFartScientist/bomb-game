@@ -97,12 +97,13 @@ func _physics_process(delta: float) -> void:
 	# Get the vertical input direction for up/down movement.
 	var vertical_direction := Input.get_axis("move_up", "move_down")
 	if vertical_direction != 0:
+		print("mog")
 		velocity.y = vertical_direction * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	# Play animations
-	if direction and vertical_direction == 0:
+	if direction || vertical_direction != 0:
 		animated_sprite.play("run")
 	else: animated_sprite.play("idle")
 	
