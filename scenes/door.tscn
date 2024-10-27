@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dh6ei6sn4c3l7"]
 
-[ext_resource type="Script" path="res://scenes/window.gd" id="1_a3h36"]
+[ext_resource type="Script" path="res://scenes/door.gd" id="1_jxel6"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_tw8tr"]
 [ext_resource type="Texture2D" uid="uid://bs5lwaautuggp" path="res://assets/graphics/door.png" id="3_cvfdn"]
 [ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="4_c5cm5"]
@@ -18,7 +18,7 @@ radius = 56.0357
 size = Vector2(49, 49)
 
 [node name="Door" type="Node2D"]
-script = ExtResource("1_a3h36")
+script = ExtResource("1_jxel6")
 
 [node name="DoorSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hspjs")
