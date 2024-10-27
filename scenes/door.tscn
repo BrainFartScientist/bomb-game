@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh6ei6sn4c3l7"]
+
+[ext_resource type="Script" path="res://scenes/door.gd" id="1_jxel6"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_tw8tr"]
+[ext_resource type="Texture2D" uid="uid://bs5lwaautuggp" path="res://assets/graphics/door.png" id="3_cvfdn"]
+[ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="4_c5cm5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hspjs"]
+shader = ExtResource("2_tw8tr")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbsbe"]
+radius = 56.0357
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6vjh"]
+size = Vector2(49, 49)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_jxel6")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hspjs")
+texture = ExtResource("3_cvfdn")
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="interactionShape" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource("CircleShape2D_jbsbe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Collisionsquare" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_x6vjh")
+
+[node name="door_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c5cm5")
+volume_db = -15.848
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

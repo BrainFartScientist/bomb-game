@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6kneh3hq7irx"]
+[gd_scene load_steps=8 format=3 uid="uid://dty25t77687gl"]
 
 [ext_resource type="Script" path="res://scenes/window.gd" id="1_c6xna"]
 [ext_resource type="Texture2D" uid="uid://cj016i8vlhb2f" path="res://assets/graphics/window.png" id="2_j0vmp"]
@@ -12,10 +12,10 @@ shader_parameter/line_thickness = 1.0
 shader_parameter/hasOutline = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbsbe"]
-radius = 54.037
+radius = 56.0357
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6vjh"]
-size = Vector2(47, 48)
+size = Vector2(49, 49)
 
 [node name="Window" type="Node2D"]
 script = ExtResource("1_c6xna")
@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_x6vjh")
 
 [node name="glass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_885gm")
-volume_db = -15.848
+volume_db = 3.961
 
 [connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

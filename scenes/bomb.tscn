@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ccrpa3xt77168"]
+[gd_scene load_steps=32 format=3 uid="uid://ccrpa3xt77168"]
 
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01.gd" id="1_lqajg"]
 [ext_resource type="Texture2D" uid="uid://j8x2kauegyv0" path="res://assets/bombs/Bomb_01_base.png" id="2_ufy5h"]
@@ -12,6 +12,12 @@
 [ext_resource type="Script" path="res://scripts/bombs/Bomb_01/Bomb_01_Cover.gd" id="9_urktr"]
 [ext_resource type="Script" path="res://scripts/bombs/Screw.gd" id="10_sfb4s"]
 [ext_resource type="Script" path="res://scripts/bombs/ExitBombButton.gd" id="12_0i141"]
+[ext_resource type="AudioStream" uid="uid://b0db2ndj8ufh8" path="res://audio/screw.mp3" id="13_jeods"]
+[ext_resource type="AudioStream" uid="uid://cuag2bslt1wg0" path="res://audio/electricity.mp3" id="14_3vkb8"]
+[ext_resource type="AudioStream" uid="uid://c45dsrm385h38" path="res://audio/plate.mp3" id="15_tc1en"]
+[ext_resource type="AudioStream" uid="uid://cplue1yebr7gd" path="res://audio/spray.mp3" id="16_ik0ah"]
+[ext_resource type="AudioStream" uid="uid://bwm4cuff4pwnb" path="res://audio/wrong.mp3" id="17_3uxq4"]
+[ext_resource type="AudioStream" uid="uid://dr434s7khpnp" path="res://audio/click-button.mp3" id="18_5lji0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eubfi"]
 shader = ExtResource("4_wuv1w")
@@ -185,3 +191,24 @@ bomb = NodePath("..")
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="screwSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_jeods")
+volume_db = -5.622
+
+[node name="cableSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_3vkb8")
+
+[node name="plateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_tc1en")
+volume_db = -15.929
+
+[node name="spraySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ik0ah")
+
+[node name="deniedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_3uxq4")
+volume_db = -5.622
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_5lji0")
