@@ -7,14 +7,19 @@ var holdingTool : String
 signal useTool(String)
 var cooldown = 0
 @onready var tool_inv = $Gui/ToolRect
+@onready var equip = $equip
+@onready var music = $music
+@onready var glass = $glass
+@onready var holdingToolVisual = $holdingToolVisual
 var interactiveElements = []
 
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _ready():
-	add_child($holdingToolVisual)
-	$holdingToolVisual.scale = Vector2(0.12, 0.12)
-	$holdingToolVisual.position = Vector2(7, -10)
+	music.play()
+	add_child(holdingToolVisual)
+	holdingToolVisual.scale = Vector2(0.12, 0.12)
+	holdingToolVisual.position = Vector2(7, -10)
 	
 func _process(delta):
 	var nearerst_node = null
@@ -34,24 +39,25 @@ func _process(delta):
 			nearerst_node.interact(self)
 	if Input.is_action_just_pressed("use_item") and cooldown <= 0:
 		var i = 1
-		if $holdingToolVisual.flip_h == true:
+		if holdingToolVisual.flip_h == true:
 			i = -1
 		match (holdingTool):
 			"axt":
-				$holdingToolVisual.rotation = deg_to_rad(45 * i)
+				holdingToolVisual.rotation = deg_to_rad(45 * i)
 			"hammer":
-				$holdingToolVisual.rotation = deg_to_rad(45 * i)
+				holdingToolVisual.rotation = deg_to_rad(45 * i)
 			"frying_pan":
-				$holdingToolVisual.rotation = deg_to_rad(45 * i)
+				holdingToolVisual.rotation = deg_to_rad(45 * i)	
 		cooldown = 0.3 
 	cooldown -= delta
 	if cooldown <= 0.2:
-		$holdingToolVisual.rotation = deg_to_rad(0)
+		holdingToolVisual.rotation = deg_to_rad(0)
 	
 func set_holding_tool(tool: String):
+	equip.play()
 	self.holdingTool = tool
 	tool_inv.display_tool(tool)
-	$holdingToolVisual.changeTool(tool)
+	holdingToolVisual.changeTool(tool)
 
 func add_interactive_element(new_element: Variant):
 	for element in interactiveElements:
@@ -88,20 +94,18 @@ func _physics_process(delta: float) -> void:
 	# Flip the Sprite vertical
 	if direction > 0:
 		animated_sprite.flip_h = false
-		$holdingToolVisual.flip_h = false
+		holdingToolVisual.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
 		if holdingTool != "wd_40":
-			$holdingToolVisual.flip_h = true
+			holdingToolVisual.flip_h = true
 		
 	# Get the vertical input direction for up/down movement.
 	var vertical_direction := Input.get_axis("move_up", "move_down")
 	if vertical_direction != 0:
-		print("mog")
 		velocity.y = vertical_direction * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
 	# Play animations
 	if direction || vertical_direction != 0:
 		animated_sprite.play("run")

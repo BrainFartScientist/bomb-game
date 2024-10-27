@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dty25t77687gl"]
+[gd_scene load_steps=8 format=3 uid="uid://c6kneh3hq7irx"]
 
 [ext_resource type="Script" path="res://scenes/window.gd" id="1_c6xna"]
 [ext_resource type="Texture2D" uid="uid://cj016i8vlhb2f" path="res://assets/graphics/window.png" id="2_j0vmp"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_v88jw"]
+[ext_resource type="AudioStream" uid="uid://dgv7ecnvupp27" path="res://audio/glass2.mp3" id="4_885gm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hspjs"]
 shader = ExtResource("2_v88jw")
@@ -43,6 +44,10 @@ shape = SubResource("RectangleShape2D_x6vjh")
 [node name="Collisionsquare" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_x6vjh")
+
+[node name="glass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_885gm")
+volume_db = -15.848
 
 [connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]

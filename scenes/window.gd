@@ -3,7 +3,7 @@ extends Node2D
 @onready var collisionsquare: CollisionShape2D = $CollisionArea/Collisionsquare
 @onready var collision_area: Area2D = $CollisionArea
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
-
+@onready var glass = $glass
 var has_outline : bool
 
 
@@ -23,6 +23,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 func interact(player: Node):
 	if player.holdingTool == "hammer":
+		glass.play(0)
 		window_sprite.hide()
 		queue_free()
 
