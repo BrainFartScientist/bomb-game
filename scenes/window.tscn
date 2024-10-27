@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=8 format=3 uid="uid://bl4bsvpmfnk8g"]
-=======
 [gd_scene load_steps=8 format=3 uid="uid://dty25t77687gl"]
->>>>>>> main
 
 [ext_resource type="Script" path="res://scenes/window.gd" id="1_c6xna"]
 [ext_resource type="Texture2D" uid="uid://cj016i8vlhb2f" path="res://assets/graphics/window.png" id="2_j0vmp"]
