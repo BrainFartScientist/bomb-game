@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=17 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_lv1my"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_cueb0"]
 [ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
 [ext_resource type="Script" path="res://scenes/tool_rect.gd" id="9_nv0lq"]
+[ext_resource type="Script" path="res://scenes/holding_tool.gd" id="10_mh2dl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -1539,6 +1540,11 @@ offset_right = 19.5
 offset_bottom = 178.5
 expand_mode = 1
 script = ExtResource("9_nv0lq")
+
+[node name="holdingToolVisual" type="Sprite2D" parent="Player"]
+script = ExtResource("10_mh2dl")
+
+[node name="Timer" type="Timer" parent="Player"]
 
 [node name="Bomb01Overworld" parent="." instance=ExtResource("6_k1dbt")]
 position = Vector2(2832, 1022)
