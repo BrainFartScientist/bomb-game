@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=28 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
@@ -11,12 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://bx01o7irndd2i" path="res://assets/gui/ToolBox.png" id="7_7n6x1"]
 [ext_resource type="Script" path="res://scenes/holding_tool.gd" id="7_ajw06"]
 [ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="7_t6o67"]
-[ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="8_clihd"]
+[ext_resource type="PackedScene" uid="uid://cwq75mpb28ixg" path="res://scenes/tools/item.tscn" id="8_clihd"]
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_pxid8"]
 [ext_resource type="PackedScene" uid="uid://b320nhkhxu34k" path="res://scenes/npcs/npc_blue_bird.tscn" id="9_rml2h"]
 [ext_resource type="Script" path="res://scripts/npc_stationary.gd" id="10_ws6rw"]
 [ext_resource type="PackedScene" uid="uid://c0dgc3my0khxi" path="res://scenes/npcs/npc_white_bird.tscn" id="11_qfb5x"]
 [ext_resource type="PackedScene" uid="uid://bmfqvsiqcmr66" path="res://scenes/npcs/npc_orange_cat.tscn" id="12_mlerq"]
+[ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="18_mglnm"]
+[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="19_764ul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -3459,6 +3461,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_68b3i")
 sources/1 = SubResource("TileSetAtlasSource_1jfgo")
 
+[sub_resource type="Curve2D" id="Curve2D_tcpx2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 912, 855, 0, 0, 0, 0, 900, 595, 0, 0, 0, 0, 1431, 148, 0, 0, 0, 0, 1724, 163, 0, 0, 0, 0, 1805, 364, 0, 0, 0, 0, 1712, 163, 0, 0, 0, 0, 1428, 145, 0, 0, 0, 0, 900, 598, 0, 0, 0, 0, 912, 855)
+}
+point_count = 9
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 
@@ -3544,3 +3552,13 @@ script = ExtResource("10_ws6rw")
 
 [node name="NPCOrangeCat" parent="." instance=ExtResource("12_mlerq")]
 position = Vector2(923, 352)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tcpx2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(912, 855)
+rotates = false
+script = ExtResource("18_mglnm")
+
+[node name="Gagster01" parent="Path2D/PathFollow2D" instance=ExtResource("19_764ul")]
