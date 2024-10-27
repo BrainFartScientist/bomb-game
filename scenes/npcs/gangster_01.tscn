@@ -175,6 +175,7 @@ sprite_frames = SubResource("SpriteFrames_7atsg")
 animation = &"idle_down"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.133333)
 polygon = PackedVector2Array(0, 1, 403, -255, 403, 256)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
