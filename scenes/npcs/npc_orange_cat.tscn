@@ -1,14 +1,21 @@
-[gd_scene load_steps=43 format=3 uid="uid://bmfqvsiqcmr66"]
+[gd_scene load_steps=45 format=3 uid="uid://bmfqvsiqcmr66"]
 
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="1_demy2"]
 [ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://scenes/npcs/dialog.tscn" id="2_07bmi"]
 [ext_resource type="Texture2D" uid="uid://5gkws75hcy6x" path="res://assets/npcs/npccatorange/CATSPRITESHEET_Orange.png" id="3_acxkq"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_h3sfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebf8"]
 size = Vector2(52, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4uxy"]
 radius = 205.548
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iniie"]
+shader = ExtResource("3_h3sfg")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8uky"]
 atlas = ExtResource("3_acxkq")
@@ -312,12 +319,12 @@ offset_left = -175.0
 offset_top = -234.0
 offset_right = -175.0
 offset_bottom = -234.0
-d_file = "res://dialogs/blue_bird_dialog_lvl1.json"
+d_file = "res://dialogs/orangecatlvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -29)
-scale = Vector2(3, 3)
+material = SubResource("ShaderMaterial_iniie")
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_7atsg")
 animation = &"idle_down"
 
