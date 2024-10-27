@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=21 format=4 uid="uid://c5kcskavjru8u"]
-
 
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="1_tspu8"]
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="2_mlxra"]
@@ -15,9 +13,8 @@
 [ext_resource type="PackedScene" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="11_tk83f"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="12_f2sll"]
-[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
-[ext_resource type="PackedScene" uid="uid://b575p33562icp" path="res://scenes/npcs/gangster_02.tscn" id="14_vl28o"]
-
+[ext_resource type="PackedScene" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
+[ext_resource type="PackedScene" path="res://scenes/npcs/gangster_02.tscn" id="14_vl28o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgful"]
 texture = ExtResource("1_tspu8")
