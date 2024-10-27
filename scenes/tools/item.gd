@@ -5,14 +5,6 @@ class_name Item
 @onready var sprite = $sprite
 var has_outline: bool = false
 var active_tool = null
-const tools = {
-	"screwdriver": {
-		"image": preload("res://assets/graphics/generic_tools/genericItem_color_005.png")
-	},
-	"ducttape": {
-		"image": preload("res://assets/graphics/custom_tools/duct_tape.png")
-	}
-}
 
 func _ready() -> void:
 	active_tool = get_node("screwdriver")
