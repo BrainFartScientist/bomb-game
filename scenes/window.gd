@@ -6,8 +6,7 @@ extends Node2D
 @onready var door_sound: AudioStreamPlayer2D = $door_sound
 
 var has_outline : bool
-
-
+var destroyed  = false
 var sprite
 
 func _ready() -> void:
@@ -23,10 +22,13 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		set_outline(false)
 
 func interact(player: Node):
-	if player.holdingTool == "axt":
-		door_sound.play(0)
-		door_sprite.hide()
-		queue_free()
+	if player.holdingTool == "hammer":
+		if destroyed == false: 
+			glass.play()
+			window_sprite.hide()
+			static_body_2d.queue_free()
+			destroyed = true
+
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
