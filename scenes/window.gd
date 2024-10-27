@@ -1,15 +1,16 @@
 extends Node2D
-@onready var window_sprite: Sprite2D = $WindowSprite
+@onready var door_sprite: Sprite2D = $DoorSprite
 @onready var collisionsquare: CollisionShape2D = $CollisionArea/Collisionsquare
 @onready var collision_area: Area2D = $CollisionArea
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
-@onready var glass = $glass
+@onready var door_sound: AudioStreamPlayer2D = $door_sound
+
 var has_outline : bool
 var destroyed  = false
 var sprite
 
 func _ready() -> void:
-	sprite = get_node("WindowSprite")
+	pass
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -27,6 +28,7 @@ func interact(player: Node):
 			window_sprite.hide()
 			static_body_2d.queue_free()
 			destroyed = true
+
 
 func set_outline(has_outline: bool):
 	self.has_outline = has_outline
