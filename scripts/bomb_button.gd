@@ -8,7 +8,4 @@ func _ready() -> void:
 func clicked(item: String, bomb: Bomb):
 	var numbers = bomb.state.getProp("numbers")
 	numbers.append(self.number)
-	if numbers.size() >= 4:
-		# TODO: Check for correct code
-		numbers = []
 	bomb.state.setProp("numbers", numbers)

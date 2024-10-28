@@ -10,11 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_b7ml8"]
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="9_y48v1"]
 [ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="10_355rt"]
-[ext_resource type="PackedScene" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
+[ext_resource type="PackedScene" uid="uid://dm2rusirlvueb" path="res://scenes/bombs/bomb_02_overworld.tscn" id="11_6805m"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="11_tk83f"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="12_f2sll"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/gangster_02.tscn" id="14_vl28o"]
+[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="13_ijr2c"]
+[ext_resource type="PackedScene" uid="uid://b575p33562icp" path="res://scenes/npcs/gangster_02.tscn" id="14_vl28o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgful"]
 texture = ExtResource("1_tspu8")
@@ -889,6 +889,10 @@ position = Vector2(110, 1074)
 position = Vector2(241, 886)
 scale = Vector2(0.5, 0.5)
 tool = "ducttape"
+
+[node name="ducttape2" parent="." instance=ExtResource("10_355rt")]
+position = Vector2(790, 111)
+scale = Vector2(0.5, 0.5)
 
 [node name="Window" parent="." instance=ExtResource("11_tk83f")]
 position = Vector2(119, 360)

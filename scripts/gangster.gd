@@ -38,7 +38,9 @@ func _process(delta):
 			var collider = ray.get_collider()
 			if collider != null:
 				if (collider.name == "Player"): # Ensure your player is in the "players" group
-					get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+					var tree = get_tree()
+					print(tree)
+					tree.change_scene_to_file("res://scenes/game_over_screen.tscn")
 		else:
 			pass	
 		ray.rotation = (rotationangle + angles[i])

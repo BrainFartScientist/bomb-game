@@ -22,4 +22,6 @@ func update():
 	
 	inside.is_active = state.getProp("CoverOpen")
 	
+	if state.getProp("CablesFixed") && !state.getProp("CoverOpen") && is_screw_group_closed("cover"):
+		get_tree().change_scene_to_file("res://scenes/you_win_screen.tscn")
 	

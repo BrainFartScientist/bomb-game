@@ -65,6 +65,12 @@ func is_screw_group_open(group: String):
 			return false
 	return true
 
+func is_screw_group_closed(group: String):
+	for screw in screws[group]:
+		if !state.getProp(screw.id):
+			return false
+	return true
+
 func trigger_update():
 	update()
 	update_screws()

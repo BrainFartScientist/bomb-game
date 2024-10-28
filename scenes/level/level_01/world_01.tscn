@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://c0dilndsxtb0b"]
+[gd_scene load_steps=30 format=4 uid="uid://c0dilndsxtb0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn33au3kv2aw7" path="res://assets/graphics/tilemap/Interiors_free_48x48.png" id="1_ac0sr"]
 [ext_resource type="Texture2D" uid="uid://c1t43vysx4uwv" path="res://assets/graphics/tilemap/Room_Builder_free_48x48.png" id="2_6d3mg"]
-[ext_resource type="PackedScene" uid="uid://cknfqe3di5lqi" path="res://scenes/tools/hammer.tscn" id="3_7fmch"]
 [ext_resource type="Texture2D" uid="uid://reay1ylv7hmf" path="res://scenes/Tür.png" id="3_qqlcy"]
 [ext_resource type="PackedScene" uid="uid://y8atnhog85c4" path="res://scenes/npcs/npc_01.tscn" id="4_tk0dy"]
 [ext_resource type="PackedScene" uid="uid://b7rqkmih4nqjp" path="res://scenes/player.tscn" id="5_2rqd1"]
@@ -12,14 +11,16 @@
 [ext_resource type="Script" path="res://scenes/holding_tool.gd" id="7_ajw06"]
 [ext_resource type="AudioStream" uid="uid://d0gc8ffcl6cas" path="res://audio/equip.mp3" id="7_t6o67"]
 [ext_resource type="AudioStream" uid="uid://b7gt70fve65e0" path="res://audio/music.mp3" id="8_pxid8"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/npc_blue_bird.tscn" id="9_rml2h"]
+[ext_resource type="PackedScene" uid="uid://b320nhkhxu34k" path="res://scenes/npcs/npc_blue_bird.tscn" id="9_rml2h"]
 [ext_resource type="Script" path="res://scripts/npc_stationary.gd" id="10_ws6rw"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/npc_white_bird.tscn" id="11_qfb5x"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/npc_orange_cat.tscn" id="12_mlerq"]
+[ext_resource type="PackedScene" uid="uid://c0dgc3my0khxi" path="res://scenes/npcs/npc_white_bird.tscn" id="11_qfb5x"]
+[ext_resource type="PackedScene" uid="uid://bmfqvsiqcmr66" path="res://scenes/npcs/npc_orange_cat.tscn" id="12_mlerq"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="18_mglnm"]
 [ext_resource type="PackedScene" uid="uid://dty25t77687gl" path="res://scenes/window.tscn" id="19_2suip"]
-[ext_resource type="PackedScene" path="res://scenes/npcs/gangster_01.tscn" id="19_764ul"]
+[ext_resource type="PackedScene" uid="uid://cg188fiw4ix86" path="res://scenes/npcs/gangster_01.tscn" id="19_764ul"]
 [ext_resource type="PackedScene" uid="uid://dh6ei6sn4c3l7" path="res://scenes/door.tscn" id="20_7qd5d"]
+[ext_resource type="PackedScene" uid="uid://c8inam3etj58u" path="res://scenes/npcs/npc_racoon.tscn" id="20_clgll"]
+[ext_resource type="PackedScene" uid="uid://btkhlmq5bcmfx" path="res://scenes/tools/item.tscn" id="21_1c3vt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbuud"]
 texture = ExtResource("1_ac0sr")
@@ -3666,10 +3667,8 @@ tile_set = SubResource("TileSet_rkmxv")
 tile_map_data = PackedByteArray("AAAyAB0AAAADADoAAGAyABwAAAAEADoAAGA1AB0AAAAIAE4AAAA0AB0AAAAHAE4AAAA0ABsAAAAHAEwAAAA1ABsAAAAIAEwAAAA1ABwAAAAIAE0AAAA0ABwAAAAHAE0AAAAwABsAAAAKAEwAAAAvABsAAAAJAEwAAAAvABwAAAAJAE0AAAAvAB0AAAAJAE4AAAAwAB0AAAAKAE4AAAAwABwAAAAKAE0AAAAtAB4AAAALAC8AADAuAB4AAAAKAC8AADAwAB4AAAAKAC8AADAyAB4AAAAKAC8AADA0AB4AAAAKAC8AADA2AB4AAAAKAC8AADAvAB4AAAALAC8AAAAxAB4AAAALAC8AAAAzAB4AAAALAC8AAAA1AB4AAAALAC8AAAAgABUAAAAKAC8AAAAiABUAAAAKAC8AAAAkABUAAAAKAC8AAAAmABUAAAAKAC8AAAAoABUAAAAKAC8AAAAnABUAAAALAC8AAAAlABUAAAALAC8AAAAjABUAAAALAC8AAAAhABUAAAALAC8AAAA2ABQAAAAOACQAAAA2ABUAAAAOACUAAAA0ABUAAAANABwAAAA1ABUAAAAOABwAAAA0ABYAAAANAB0AAAA1ABYAAAAOAB0AAAAtABgAAAALAEsAAAAtABkAAAALAEwAAAAuABkAAAANAEwAAAAuABgAAAANAEsAAAAhAA8AAAALAA4AAAAjAA8AAAAMAA4AAAArAA8AAAALAAwAAAAtAA8AAAALAA0AAAAuAA4AAAAMAA0AAAA=")
 tile_set = SubResource("TileSet_m4ign")
 
-[node name="Hammer" parent="." instance=ExtResource("3_7fmch")]
-position = Vector2(2758, 504)
-
 [node name="NPC01" parent="." instance=ExtResource("4_tk0dy")]
+visible = false
 position = Vector2(2859, 683)
 
 [node name="Player" parent="." instance=ExtResource("5_2rqd1")]
@@ -3757,3 +3756,26 @@ position = Vector2(185, 732)
 
 [node name="Door4" parent="." instance=ExtResource("20_7qd5d")]
 position = Vector2(281, 1306)
+
+[node name="NPCRacoon" parent="." instance=ExtResource("20_clgll")]
+position = Vector2(2805, 737)
+script = ExtResource("10_ws6rw")
+
+[node name="hammer" parent="." instance=ExtResource("21_1c3vt")]
+position = Vector2(2904, 722)
+scale = Vector2(0.5, 0.5)
+tool = "hammer"
+
+[node name="axe" parent="." instance=ExtResource("21_1c3vt")]
+position = Vector2(3013, 721)
+scale = Vector2(0.5, 0.5)
+tool = "axe"
+
+[node name="ducttape" parent="." instance=ExtResource("21_1c3vt")]
+position = Vector2(719, 1380)
+scale = Vector2(0.5, 0.5)
+tool = "ducttape"
+
+[node name="screwdriver" parent="." instance=ExtResource("21_1c3vt")]
+position = Vector2(185, 328)
+scale = Vector2(0.5, 0.5)

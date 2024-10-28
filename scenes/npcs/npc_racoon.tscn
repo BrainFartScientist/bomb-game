@@ -1,14 +1,21 @@
-[gd_scene load_steps=43 format=3 uid="uid://c8inam3etj58u"]
+[gd_scene load_steps=45 format=3 uid="uid://c8inam3etj58u"]
 
 [ext_resource type="Script" path="res://scripts/npc_roaming.gd" id="1_v6r1y"]
 [ext_resource type="PackedScene" uid="uid://c7rslujjt31k8" path="res://scenes/npcs/dialog.tscn" id="2_bvhek"]
 [ext_resource type="Texture2D" uid="uid://e4ec8hq1v1nk" path="res://assets/npcs/npcracoon/RACCOONSPRITESHEET.png" id="3_55d4y"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_my5jn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebf8"]
 size = Vector2(52, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4uxy"]
 radius = 205.548
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17imi"]
+shader = ExtResource("3_my5jn")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/hasOutline = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp0r4"]
 atlas = ExtResource("3_55d4y")
@@ -312,10 +319,11 @@ offset_left = -175.0
 offset_top = -234.0
 offset_right = -175.0
 offset_bottom = -234.0
-d_file = "res://dialogs/blue_bird_dialog_lvl1.json"
+d_file = "res://dialogs/boss_dialog_lvl1.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_17imi")
 position = Vector2(2, -29)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7atsg")

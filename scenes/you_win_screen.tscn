@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_nestp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0yb7"]
-bg_color = Color(0.538571, 0.571685, 0.867518, 1)
+bg_color = Color(0.361698, 0.691404, 0.309381, 1)
 
 [node name="GameOverScreen" type="CanvasLayer"]
 script = ExtResource("1_nestp")
@@ -30,7 +30,7 @@ theme_override_constants/separation = 60
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Game Over"
+text = "You Win!"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]

@@ -52,6 +52,11 @@ func update():
 		button.is_active = state.getProp("Refilled")
 	
 	var numbers = state.getProp("numbers")
+	if numbers.size() == 4:
+		if numbers[0] == 1 and numbers[1] == 1 and numbers[2] == 1 and numbers[3] == 1:
+			get_tree().change_scene_to_file("res://scenes/you_win_screen.tscn")
+		else:
+			state.setProps("numbers", [])
 	for i in range(4):
 		if numbers.size() > i:
 			displays[i].set_number(numbers[i])
@@ -61,4 +66,5 @@ func update():
 	cover1.is_active = is_screw_group_open("cover")
 	set_active_screw_group("cover", !state.getProp("CoverOpen1"))
 	cover1.visible = !state.getProp("CoverOpen1")	
-	pass
+	
+	
